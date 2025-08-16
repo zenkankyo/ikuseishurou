@@ -322,37 +322,57 @@
 <!-- ページ下部パーツ -->
 <div style="text-align:center; margin: 50px 0;">
 
-  <!-- 上に戻るボタン -->
-  <a href="#top" style="
-      display:inline-block;
-      padding:10px 20px;
-      background:#007BFF;
-      color:#fff;
-      text-decoration:none;
-      border-radius:30px;
-      margin-bottom:20px;
-      font-weight:bold;
-  ">
-    ↑ 上に戻る
-  </a>
+<!-- 上に戻るボタン -->
+<a href="#top" class="back-to-top">▲</a>
 
-  <br><br>
+<style>
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1d4ed8;
+  color: white;
+  font-size: 20px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.back-to-top:hover {
+  background-color: #2563eb;
+}
+</style>
+  <br>
 
   <!-- SNSシェアボタン -->
-  <div>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://あなたのサイトURL"
-       target="_blank"
-       style="margin:0 10px; text-decoration:none; color:#3b5998; font-size:20px;">
-       Facebookでシェア
-    </a>
-
-    <a href="https://twitter.com/intent/tweet?url=http://あなたのサイトURL&text=育成就労制度への問題提起"
-       target="_blank"
-       style="margin:0 10px; text-decoration:none; color:#1da1f2; font-size:20px;">
-       Xでシェア
-    </a>
-  </div>
+  <div class="share-buttons">
+  <p>この記事をシェアする:</p>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank">Facebook</a> |
+  <a href="https://twitter.com/intent/tweet?url=https://example.com&text=おすすめ記事" target="_blank">X（旧Twitter）</a> |
+  <a href="https://social-plugins.line.me/lineit/share?url=https://example.com" target="_blank">LINE</a>
 </div>
+
+<style>
+.share-buttons {
+  text-align: center;
+  margin: 30px 0;
+}
+.share-buttons a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 15px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #1e293b;
+  transition: background 0.3s;
+}
+.share-buttons a:hover {
+  background: #e2e8f0;
+}
+</style>
 <!-- /ページ下部パーツ -->
 <footer class="accent-bg text-white text-center py-6 mt-12">
         <p>&copy; 2025 この訴えは中小零細企業の存亡に関わる緊急の課題として提起されています</p>
@@ -386,6 +406,7 @@
     </script>
 </body>
 </html>
+
 
 
 
