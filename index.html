@@ -364,6 +364,24 @@
     </a>
   </div>
 </section>
+<script>
+  (function () {
+    const url   = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+
+    const $ = sel => document.querySelector(sel);
+
+    const fb   = $('a[data-share="fb"]');
+    const x    = $('a[data-share="x"]');
+    const line = $('a[data-share="line"]');
+    const mail = $('a[data-share="mail"]');
+
+    if (fb)   fb.href   = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    if (x)    x.href    = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    if (line) line.href = `https://social-plugins.line.me/lineit/share?url=${url}`;
+    if (mail) mail.href = `mailto:?subject=${title}&body=${url}`;
+  })();
+</script>
 
 </body>
 </html>
@@ -445,6 +463,7 @@
     </script>
 </body>
 </html>
+
 
 
 
