@@ -225,39 +225,54 @@
                     中小零細企業の人材確保の道を守り、後継者に夢と希望を与えるために、発言と行動に打って出ましょう。<br>行政や有識者・マスコミに気後れする必要はありません。我々には表現し請願する権利が憲法で保証されています。
                 </p>
                   <!-- SNSシェアボタン -->
-<!-- SNSシェアボタン -->
-<div class="share-buttons">
-  <p>この記事をシェアする:</p>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://zenkankyo.github.io/ikuseishurou/" 
-     target="_blank" alt="Facebookでシェア">Facebook</a> |
-  <a href="https://twitter.com/intent/tweet?url=https://zenkankyo.github.io/ikuseishurou/&text=おすすめ記事" 
-     target="_blank" alt="Xでシェア">X（旧Twitter）</a> |
-  <a href="https://social-plugins.line.me/lineit/share?url=https://zenkankyo.github.io/ikuseishurou/" 
-     target="_blank" alt="LINEでシェア">LINE</a> |
-  <a href="mailto:?subject=おすすめ記事&body=ここ見てみて👉 https://zenkankyo.github.io/ikuseishurou/" 
-     target="_blank" alt="メールで送る">メール</a>
+<!-- === 共有シリーズ（アイコン＋色分け／カード内の最後） === -->
+<div id="share" class="mt-6 flex flex-wrap items-center justify-center gap-2">
+  <!-- Facebook -->
+  <a data-share="fb" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-[#1877F2] hover:opacity-90"
+     aria-label="Facebookでシェア">
+    <!-- FBアイコン -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 5.02 3.66 9.19 8.44 9.99v-7.06H7.9v-2.94h2.4V9.41c0-2.37 1.41-3.68 3.57-3.68 1.03 0 2.1.18 2.1.18v2.31h-1.19c-1.18 0-1.55.73-1.55 1.48v1.78h2.64l-.42 2.94h-2.22v7.06c4.78-.79 8.44-4.96 8.44-9.99z"/>
+    </svg>
+    <span>Facebook</span>
+  </a>
+
+  <!-- X（Twitter） -->
+  <a data-share="x" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-black hover:opacity-90"
+     aria-label="Xでシェア">
+    <!-- Xアイコン -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.7 10.6 21.5 2h-1.9l-6.8 7.7L7.1 2H2l8.2 11.6L2 22h1.9l7.3-8.2 6.1 8.2H22l-8.3-11.4z"/>
+    </svg>
+    <span>X</span>
+  </a>
+
+  <!-- LINE -->
+  <a data-share="line" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-[#06C755] hover:opacity-90"
+     aria-label="LINEで送る">
+    <!-- LINEアイコン（吹き出し） -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 3H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+    </svg>
+    <span>LINE</span>
+  </a>
+
+  <!-- メール -->
+  <a data-share="mail" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-slate-600 hover:opacity-90"
+     aria-label="メールで送る">
+    <!-- 封筒アイコン -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+    </svg>
+    <span>メール</span>
+  </a>
 </div>
-
-<style>
-.share-buttons {
-  text-align: center;
-  margin: 30px 0;
-}
-.share-buttons a {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 10px 15px;
-  background: #f1f5f9;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #1e293b;
-  transition: background 0.3s;
-}
-.share-buttons a:hover {
-  background: #e2e8f0;
-}
-</style>
-
+<!-- === /共有シリーズ === -->
+                </div> <!-- ← これが白いカード(bg-white p-8 …) の閉じタグ -->
             <div class="text-center my-12 px-4">
             <img src="https://i.imgur.com/vrXTcWt.jpeg5" alt="外国人技能実習制度の鉄筋施工技能試験で組み立て作業を終え、達成感あふれる表情を見せる実習生たち" class="inline-block max-w-3xl w-full h-auto rounded-xl shadow-xl">
             <p class="text-center mb-8 text-slate-700">検定試験に臨む実習生たち</p>
@@ -430,6 +445,7 @@
     </script>
 </body>
 </html>
+
 
 
 
