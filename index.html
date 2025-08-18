@@ -464,114 +464,77 @@
 <!-- ページ下部パーツ -->
 <div style="text-align:center; margin: 50px 0;">
 
-<!-- 上に戻るボタン -->
-<a href="#top" class="back-to-top">▲</a>
+  <!-- 上に戻るボタン -->
+  <a href="#top" class="back-to-top">▲</a>
 
-<style>
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #1d4ed8;
-  color: white;
-  font-size: 20px;
-  padding: 12px 16px;
-  border-radius: 50%;
-  text-align: center;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s;
-}
-.back-to-top:hover {
-  background-color: #2563eb;
-}
-</style>
-  <br>
-<style>
-.share-buttons {
-  text-align: center;
-  margin: 30px 0;
-}
-.share-buttons a {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 10px 15px;
-  background: #f1f5f9;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #1e293b;
-  transition: background 0.3s;
-}
-.share-buttons a:hover {
-  background: #e2e8f0;
-}
-</style>
+  <style>
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1d4ed8;
+      color: white;
+      font-size: 20px;
+      padding: 12px 16px;
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+      z-index: 9999;
+    }
+    .back-to-top:hover {
+      background-color: #2563eb;
+    }
+
+    .share-buttons {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .share-buttons a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 15px;
+      background: #f1f5f9;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #1e293b;
+      transition: background 0.3s;
+    }
+    .share-buttons a:hover {
+      background: #e2e8f0;
+    }
+  </style>
+
+</div>
 <!-- /ページ下部パーツ -->
+
 <footer class="accent-bg text-white text-center py-6 mt-12">
-        <p>&copy; 2025 この訴えは中小零細企業の存亡に関わる緊急の課題として提起されています</p>
-    </footer>
+  <p>&copy; 2025 この訴えは中小零細企業の存亡に関わる緊急の課題として提起されています</p>
+</footer>
 
-    <script>
-        // Smooth scroll functionality
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            // Update active nav button (optional visual feedback)
-            const buttons = document.querySelectorAll('.nav-button');
-            buttons.forEach(button => {
-                button.classList.remove('active-nav');
-                if (button.getAttribute('onclick').includes(sectionId)) {
-                    button.classList.add('active-nav');
-                }
-            });
-        }
-        
-        // Set initial active nav button based on initial view (optional)
-        window.addEventListener('DOMContentLoaded', () => {
-            // For simplicity, activate the first button or implement more complex scroll detection
-            const firstNavButton = document.querySelector('.nav-button');
-            if (firstNavButton) {
-                firstNavButton.classList.add('active-nav');
-            }
-        });
+<script>
+  // Smooth scroll functionality
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    // Update active nav button (optional visual feedback)
+    const buttons = document.querySelectorAll('.nav-button');
+    buttons.forEach(button => {
+      button.classList.remove('active-nav');
+      if (button.getAttribute('onclick').includes(sectionId)) {
+        button.classList.add('active-nav');
+      }
+    });
+  }
 
-        // Chart.js related script for 'languageHurdleChart' has been removed 
-        // as the canvas element was replaced by an image and text.
-    </script>
+  // Set initial active nav button based on initial view
+  window.addEventListener('DOMContentLoaded', () => {
+    const firstNavButton = document.querySelector('.nav-button');
+    if (firstNavButton) {
+      firstNavButton.classList.add('active-nav');
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
