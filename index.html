@@ -464,47 +464,40 @@
 <!-- ページ下部パーツ -->
 <div style="text-align:center; margin: 50px 0;">
 
-  <!-- 上に戻るボタン -->
-  <a href="#top" class="back-to-top">▲</a>
+<!-- 上に戻るボタン -->
+<a href="#top" class="back-to-top">▲</a>
 
-  <style>
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #1d4ed8;
-      color: white;
-      font-size: 20px;
-      padding: 12px 16px;
-      border-radius: 50%;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s;
-      z-index: 9999;
-    }
-    .back-to-top:hover {
-      background-color: #2563eb;
-    }
+<!-- ご意見フォームボタン -->
+<a href="https://docs.google.com/forms/d/～～/viewform" target="_blank" class="opinion-btn">📮</a>
 
-    .share-buttons {
-      text-align: center;
-      margin: 30px 0;
-    }
-    .share-buttons a {
-      display: inline-block;
-      margin: 0 10px;
-      padding: 10px 15px;
-      background: #f1f5f9;
-      border-radius: 6px;
-      text-decoration: none;
-      color: #1e293b;
-      transition: background 0.3s;
-    }
-    .share-buttons a:hover {
-      background: #e2e8f0;
-    }
-  </style>
+<style>
+.back-to-top, .opinion-btn {
+  position: fixed;
+  right: 20px;
+  background-color: #1d4ed8;
+  color: white;
+  font-size: 20px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.back-to-top:hover, .opinion-btn:hover {
+  background-color: #2563eb;
+}
+
+/* 上に戻る → 右下20px */
+.back-to-top {
+  bottom: 80px; /* ←ご意見フォームよりちょっと上 */
+}
+
+/* ご意見フォーム → その下に配置 */
+.opinion-btn {
+  bottom: 20px;
+}
+</style>
 
 </div>
 <!-- /ページ下部パーツ -->
@@ -538,3 +531,4 @@
 
 </body>
 </html>
+
