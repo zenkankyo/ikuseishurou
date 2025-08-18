@@ -297,24 +297,31 @@
 <!-- ▼ 関連コンテンツ ▼ -->
 <section class="related">
   <h2>関連コンテンツ</h2>
- <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" 
-  src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
 
-<div class="fb-page" 
-     data-href="https://www.facebook.com/marucon.info/" 
-     data-tabs="timeline" 
-     data-width="500" 
-     data-height="700" 
-     data-small-header="false" 
-     data-adapt-container-width="true" 
-     data-hide-cover="false" 
-     data-show-facepile="true">
-  <blockquote cite="https://www.facebook.com/marucon.info/" class="fb-xfbml-parse-ignore">
-    <a href="https://www.facebook.com/marucon.info/">Facebookページを見る</a>
-  </blockquote>
-</div>
+  <div class="card-container">
+    <!-- Facebook -->
+    <div class="card">
+      <h3>Facebook</h3>
+      <div class="card-content">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" 
+          src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
 
+        <div class="fb-page" 
+             data-href="https://www.facebook.com/marucon.info/" 
+             data-tabs="timeline" 
+             data-width="300" 
+             data-height="400" 
+             data-small-header="false" 
+             data-adapt-container-width="true" 
+             data-hide-cover="false" 
+             data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/marucon.info/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/marucon.info/">Facebookページを見る</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
 
     <!-- YouTube1 -->
     <div class="card">
@@ -344,41 +351,41 @@
   </div>
 </section>
 
-<!-- ▼ CSSを追加 ▼ -->
 <style>
 .related {
-  margin: 40px 0;
-  padding: 20px;
-  background: #f9f9f9;
+  margin: 40px auto;
+  max-width: 1100px;
 }
 .related h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  border-left: 5px solid #007BFF;
-  padding-left: 10px;
+  text-align: center;
+  margin-bottom: 20px;
 }
-.gallery {
+.card-container {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .card {
   flex: 1 1 300px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 .card h3 {
+  text-align: center;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 10px;
   font-size: 16px;
-  margin-bottom: 10px;
-  color: #333;
 }
 .card-content {
-  text-align: center;
+  padding: 10px;
 }
 </style>
+
 
    <div class="bg-white p-6 rounded-lg shadow-lg my-12">
   <h3 class="text-2xl font-bold text-center mb-4 text-sky-700">ご意見フォーム</h3>
@@ -559,5 +566,6 @@
 
 </body>
 </html>
+
 
 
