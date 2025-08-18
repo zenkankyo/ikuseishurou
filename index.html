@@ -290,90 +290,88 @@
         src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123">
 </script>
  <div>
- <section id="media" class="my-12">
-  <!-- items-start → items-stretch に変更して全カードを同じ高さに伸ばす -->
-  <div class="grid gap-6 md:grid-cols-3 items-stretch">
-    <!-- Facebook（左） -->
-    <div class="bg-white p-3 rounded-lg shadow h-full">
-      <div class="fb-page"
-           data-href="https://www.facebook.com/marucon.info"
-           data-tabs="timeline"
-           data-adapt-container-width="true"
-           data-small-header="false"
-           data-hide-cover="false"
-           data-show-facepile="true"
-           data-height="420"> <!-- ← 高さを抑える。360〜460で微調整OK -->
+<!-- ▼ 関連コンテンツ ▼ -->
+<section class="related">
+  <h2>関連コンテンツ</h2>
+  <div class="gallery">
+    <!-- Facebook -->
+    <div class="card">
+      <h3>Facebook</h3>
+      <div class="card-content">
+        <!-- FBプラグイン埋め込み部分（既存のやつ） -->
+        <iframe src="https://www.facebook.com/plugins/page.php?
+          href=https%3A%2F%2Fwww.facebook.com%2Fzenkankyo
+          &tabs=timeline&width=340&height=400&small_header=true
+          &adapt_container_width=true&hide_cover=false&show_facepile=true"
+          width="100%" height="400" style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
       </div>
-        <!-- trial: media block v1 START -->
-<div id="media" class="flex flex-col md:flex-row justify-center gap-4 my-8">
-  <!-- Facebook -->
-  <div class="flex-1 min-h-[420px]">
-    <div class="fb-page"
-      data-href="https://www.facebook.com/zenkankyo"
-      data-tabs="timeline"
-      data-width="400"
-      data-height="420"
-      data-small-header="false"
-      data-adapt-container-width="true"
-      data-hide-cover="false"
-      data-show-facepile="true"></div>
-  </div>
-
-  <!-- YouTube1 -->
-  <div class="flex-1">
-    <iframe width="100%" height="420"
-      src="https://www.youtube.com/embed/P9-KjVaKzoU"
-      title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-
-  <!-- YouTube2 -->
-  <div class="flex-1">
-    <iframe width="100%" height="420"
-      src="https://www.youtube.com/embed/F_gzzD1Dj_I"
-      title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-</div>
-<!-- trial: media block v1 END -->
-
     </div>
 
-    <!-- YouTube（中央） -->
-    <div class="bg-white p-3 rounded-lg shadow h-full flex flex-col">
-      <div class="relative w-full" style="padding-top:56.25%;">
-        <iframe
-          src="https://www.youtube.com/embed/P9-KjVaKzoU"
-          title="YouTube video 1"
-          class="absolute inset-0 w-full h-full rounded"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
+    <!-- YouTube1 -->
+    <div class="card">
+      <h3>YouTube</h3>
+      <div class="card-content">
+        <iframe width="100%" height="200" 
+          src="https://www.youtube.com/embed/P9-KjVaKzoU" 
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
-      <p class="mt-2 text-sm text-slate-600">▶ 新制度関連の動画1</p>
     </div>
 
-    <!-- YouTube（右） -->
-    <div class="bg-white p-3 rounded-lg shadow h-full flex flex-col">
-      <div class="relative w-full" style="padding-top:56.25%;">
-        <iframe
-          src="https://www.youtube.com/embed/F_gzzD1Dj_I"
-          title="YouTube video 2"
-          class="absolute inset-0 w-full h-full rounded"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
+    <!-- YouTube2 -->
+    <div class="card">
+      <h3>YouTube</h3>
+      <div class="card-content">
+        <iframe width="100%" height="200" 
+          src="https://www.youtube.com/embed/F_gzzD1Dj_I" 
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
-      <p class="mt-2 text-sm text-slate-600">▶ 新制度関連の動画2</p>
     </div>
   </div>
 </section>
 
-        </section>
+<!-- ▼ CSSを追加 ▼ -->
+<style>
+.related {
+  margin: 40px 0;
+  padding: 20px;
+  background: #f9f9f9;
+}
+.related h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-left: 5px solid #007BFF;
+  padding-left: 10px;
+}
+.gallery {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  flex: 1 1 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+.card-content {
+  text-align: center;
+}
+</style>
+
    <div class="bg-white p-6 rounded-lg shadow-lg my-12">
   <h3 class="text-2xl font-bold text-center mb-4 text-sky-700">ご意見フォーム</h3>
   <p class="text-center text-slate-600 mb-6">下のフォームから、あなたの考えや現場の声をお寄せください。</p>
@@ -541,6 +539,7 @@
     </script>
 </body>
 </html>
+
 
 
 
