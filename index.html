@@ -464,117 +464,100 @@
 </body>
 </html>
 <!-- ページ下部パーツ -->
-<div style="text-align:center; margin: 50px 0;">
+<div id="fixed-buttons">
 
-<!-- 上に戻るボタン -->
-<a href="#top" class="back-to-top">▲</a>
-
-<!-- 右下：吹き出し＋封筒ボタン -->
-<div id="feedback-stack" class="feedback-stack">
   <!-- 吹き出し -->
-  <div class="bubble" id="feedback-bubble">
-    <span>現場の声をぜひお聞かせください</span>
-    <button class="bubble-close" aria-label="閉じる">✕</button>
+  <div class="bubble">
+    現場の声をぜひお聞かせください
   </div>
 
-  <!-- 封筒ボタン -->
-  <a href="https://forms.gle/Si4rsNDTvfctbZ8e7"
-     target="_blank"
-     class="mail-btn"
-     title="ご意見フォーム"
-     aria-label="ご意見フォーム">
-    <svg xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 24 24"
-         width="28" height="28"
-         fill="white"
-         aria-hidden="true">
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2
-               2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0
+  <!-- 封筒ボタン（Googleフォームにリンク） -->
+  <a href="https://forms.gle/Si4rsNDTvfctbZ8e7" target="_blank" class="mail-fab" title="ご意見フォーム">
+    <!-- 封筒アイコン -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 
+               2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
                4l-8 5-8-5V6l8 5 8-5v2z"/>
     </svg>
   </a>
+
+  <!-- 上に戻るボタン -->
+  <a href="#top" class="back-to-top">▲</a>
+
 </div>
 
 <style>
-.feedback-stack {
+/* 固定ボタン全体（右端に寄せる） */
+#fixed-buttons {
   position: fixed;
   bottom: 20px;
   right: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-end; /* 吹き出しも右端に */
+  gap: 12px;
   z-index: 10000;
 }
 
+/* 吹き出しデザイン */
 .bubble {
+  background: #fff;
+  color: #333;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
   position: relative;
-  max-width: 240px;
-  background: #ffffff;
-  color: #334155;
-  border: 1px solid #cbd5e1;
-  border-radius: 14px;
-  padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+  max-width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin: 0;
 }
-
 .bubble::after {
   content: "";
   position: absolute;
-  bottom: -7px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 12px;
-  height: 12px;
-  background: #ffffff;
-  border-right: 1px solid #cbd5e1;
-  border-bottom: 1px solid #cbd5e1;
+  right: 12px;
+  bottom: -10px;
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
 }
 
-.bubble-close {
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  background: transparent;
-  border: none;
-  color: #64748b;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.mail-btn {
-  width: 56px;
-  height: 56px;
+/* 封筒ボタン */
+.mail-fab {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: #dc2626;
+  background-color: #dc2626;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
-  transition: background .2s ease;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
 }
-.mail-btn:hover {
-  background: #ef4444;
+.mail-fab:hover {
+  background-color: #ef4444;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* 上に戻るボタン */
+.back-to-top {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #1d4ed8;
+  text-align: center;
+  line-height: 48px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.back-to-top:hover {
+  background-color: #2563eb;
 }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const btn = document.querySelector('.bubble-close');
-  const bubble = document.getElementById('feedback-bubble');
-  if (btn && bubble) {
-    btn.addEventListener('click', () => bubble.style.display = 'none');
-  }
-});
-</script>
 
 
 <!-- /ページ下部パーツ -->
@@ -608,6 +591,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+
 
 
 
