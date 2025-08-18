@@ -54,14 +54,18 @@
  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between py-3">
-      <!-- 左：ロゴ -->　  
-      <a href="/" class="flex items-center gap-3">
-          
-        <img src="./images/NASO-logo.png" 
-             alt="全国監理団体協会（全監協）ロゴ" 
-             class="h-10 w-auto">
-        <span class="text-slate-800 font-bold text-lg hidden sm:inline">全国監理団体協会</span>
-      </a>
+        <!-- 左：ロゴ -->
+<a href="/ikuseishurou/" class="flex items-center gap-3 shrink-0">
+  <img
+    src="./images/NASO-logo.png"
+    alt="全国監理団体協会ロゴ"
+    class="h-14 md:h-16 w-auto"
+    loading="eager"
+    decoding="async"
+  >
+  <span class="text-slate-800 font-bold text-lg hidden sm:inline">全国監理団体協会</span>
+</a>
+
       <!-- 右：ナビ（必要なら） -->
 <nav class="hidden md:flex items-center gap-2 text-slate-700">
   <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">問題提起</a>
@@ -293,20 +297,24 @@
 <!-- ▼ 関連コンテンツ ▼ -->
 <section class="related">
   <h2>関連コンテンツ</h2>
-  <div class="gallery">
-    <!-- Facebook -->
-    <div class="card">
-      <h3>Facebook</h3>
-      <div class="card-content">
-        <!-- FBプラグイン埋め込み部分（既存のやつ） -->
-        <iframe src="https://www.facebook.com/plugins/page.php?
-          href=https%3A%2F%2Fwww.facebook.com%2Fzenkankyo
-          &tabs=timeline&width=340&height=400&small_header=true
-          &adapt_container_width=true&hide_cover=false&show_facepile=true"
-          width="100%" height="400" style="border:none;overflow:hidden"
-          scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
-      </div>
-    </div>
+ <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+  src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
+
+<div class="fb-page" 
+     data-href="https://www.facebook.com/marucon.info/" 
+     data-tabs="timeline" 
+     data-width="500" 
+     data-height="700" 
+     data-small-header="false" 
+     data-adapt-container-width="true" 
+     data-hide-cover="false" 
+     data-show-facepile="true">
+  <blockquote cite="https://www.facebook.com/marucon.info/" class="fb-xfbml-parse-ignore">
+    <a href="https://www.facebook.com/marucon.info/">Facebookページを見る</a>
+  </blockquote>
+</div>
+
 
     <!-- YouTube1 -->
     <div class="card">
@@ -467,36 +475,56 @@
 <!-- 上に戻るボタン -->
 <a href="#top" class="back-to-top">▲</a>
 
-<!-- ご意見フォームボタン -->
-<a href="https://docs.google.com/forms/d/～～/viewform" target="_blank" class="opinion-btn">📮</a>
+<!-- 封筒ボタン（Googleフォームにリンク） -->
+<a href="https://docs.google.com/forms/XXXXX" target="_blank" class="mail-fab" title="ご意見フォーム">
+  <!-- 封筒アイコン（SVG） -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 
+             2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
+             4l-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+</a>
 
 <style>
-.back-to-top, .opinion-btn {
+/* 共通ボタンのデザイン */
+.back-to-top, .mail-fab {
   position: fixed;
-  right: 20px;
-  background-color: #1d4ed8;
-  color: white;
-  font-size: 20px;
-  padding: 12px 16px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   text-align: center;
+  line-height: 48px;
   text-decoration: none;
+  color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transition: background-color 0.3s;
+  z-index: 999;
 }
-.back-to-top:hover, .opinion-btn:hover {
+
+/* 上に戻るボタン（左寄せ気味） */
+.back-to-top {
+  right: 80px;
+  background-color: #1d4ed8;
+  font-size: 20px;
+}
+.back-to-top:hover {
   background-color: #2563eb;
 }
 
-/* 上に戻る → 右下20px */
-.back-to-top {
-  bottom: 80px; /* ←ご意見フォームよりちょっと上 */
+/* 封筒ボタン（右下） */
+.mail-fab {
+  right: 20px;
+  background-color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.mail-fab:hover {
+  background-color: #ef4444;
+}
+</style>
 
-/* ご意見フォーム → その下に配置 */
-.opinion-btn {
-  bottom: 20px;
-}
 </style>
 
 </div>
@@ -531,4 +559,5 @@
 
 </body>
 </html>
+
 
