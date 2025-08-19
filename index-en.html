@@ -1,91 +1,643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>National Association of Supervising Organizations</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background: #004080;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      background: #e0e0e0;
-    }
-    nav ul li {
-      margin: 0 10px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #004080;
-      font-weight: bold;
-    }
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    footer {
-      background: #004080;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raising Concerns about the Ikusei-Shurō Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Visualization & Content Choices:
+        - Overview: Text summary, key stats (e.g., 200+ SMEs). Goal: Establish context/urgency. Method: HTML/Tailwind.
+        - Problem 1 (Language): Text + Image and Text. Goal: Show increased difficulty. Interaction: None. Justification: Visual impact for abstract hurdle.
+        - Problem 2 (Company Burden): Text + Prominent display of cost increase. Goal: Quantify financial impact. Method: HTML/Tailwind styled text. Interaction: None. Justification: Directness.
+        - Problem 3 (Supervising Org.): Text + HTML/CSS diagram (Before/After). Goal: Illustrate structural negative change. Method: HTML/Tailwind. Interaction: None. Justification: Clear comparison.
+        - Voices: Direct quotes. Goal: Humanize impact. Method: HTML/Tailwind blockquotes.
+        - Call to Action: Strong text, petitioner info. Goal: Reinforce demand. Method: HTML/Tailwind.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Chart.js removed as chart was replaced. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        /* Removed .chart-container styles as it's no longer used for the JLPT image section */
+        .problem-card {
+            border: 1px solid #e2e8f0; /* slate-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1.5rem; /* p-6 */
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        .section-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #b91c1c; /* text-red-700 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            text-align: center;
+        }
+        .accent-bg { background-color: #0284c7; /* bg-sky-600 */ }
+        .accent-text { color: #0284c7; /* text-sky-600 */ }
+        .nav-button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: #0369a1; /* sky-700 */
+        }
+        .nav-button.active-nav {
+            background-color: #0ea5e9; /* sky-500 */
+            font-weight: 600;
+        }
+    </style>
+<meta name="google-site-verification" content="TmZslLybA1iqguu3bHIISYwuS9fliPRTT6xiY7IHfxw" />
 </head>
-<body>
-  <header>
-    <h1>NASO</h1>
-    <p>National Association of Supervising Organizations</p>
-  </header>
+<body class="bg-slate-100 text-slate-800">
+<a id="top"></a>
+<header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between py-3">
+      
+      <!-- Left: Logo -->
+      <a href="/ikuseishurou/" class="flex items-center gap-3 shrink-0">
+      <img
+  src="./images/NASO-logo.png"
+  alt="NASO (National Association of Supervisory Organizations) logo"
+  class="h-16 md:h-24 w-auto"
+/>
+      </a>
 
-  <nav>
-    <ul>
-      <li><a href="index-en.html">Home</a></li>
-      <li><a href="about-en.html">About Us</a></li>
-      <li><a href="activities-en.html">Activities</a></li>
-      <li><a href="voices-en.html">Voices</a></li>
-      <li><a href="contact-en.html">Contact</a></li>
-    </ul>
-  </nav>
+      <!-- Right: Nav -->
+      <nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
+        <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">Overview</a>
+        <a href="#voices" class="px-3 py-2 rounded-md hover:bg-slate-100">Voices</a>
+        <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">Key Demands</a>
+        <a href="#partners" class="px-3 py-2 rounded-md hover:bg-slate-100">Partners</a>
 
-  <main>
-    <section>
-      <h2>Our Mission</h2>
-      <p>
-        The National Association of Supervising Organizations (NASO) is dedicated to ensuring fair and transparent management 
-        of foreign workers in Japan. We work to protect human rights, improve working conditions, and build trust between 
-        companies and trainees.
+        <!-- Feedback form button -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8AD-V9_haAllC80Jfb7ZrWETJdcNbhxNEFGXVv8tV1brozA/viewform?usp=header"
+           target="_blank" rel="noopener"
+           class="ml-2 px-4 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 shadow">
+           Feedback Form
+        </a>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+
+<!-- Main title section -->
+<section class="bg-blue-600 text-white py-16">
+  <div class="container mx-auto text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-wide">
+      Raising Concerns about the Ikusei-Shurō Program
+    </h1>
+  </div>
+</section>
+
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="overview" class="mb-12 pt-16 -mt-16">
+            <h2 class="section-title">Background and Urgency</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="mb-4 text-lg">
+                    This statement is issued by Kazuo Arai, President of the National Association of Supervisory Organizations (NASO), to sound the alarm over the serious impacts likely to result from the government’s proposed “Ikusei-Shurō Program,” and to call for its reconsideration.
+                </p>
+                <p class="mb-4">
+                    As a replacement for the Technical Intern Training Program, the new proposal is strongly criticized for imposing harsh regulations, ignoring the realities of an aging society with labor shortages, and—above all—discouraging the very foreign workers who wish to come and work in Japan.
+                </p><p class="mt-3">
+  <a href="./what-is/" class="text-blue-600 underline hover:text-blue-800">
+    ▶ Read the detailed article about the new system
+  </a>
+</p>
+
+                <div class="mt-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded-md">
+                    <p class="font-bold text-xl">Attention small and micro businesses: the last remaining path to securing talent—hiring foreign workers—will be closed off!</p>
+                </div>
+                <div class="text-center my-12 px-4">
+                <img src="https://i.imgur.com/z1QDyC2.jpeg" alt="In the Philippines, young applicants for Japan take a practical rebar test during a trainee selection event" class="inline-block max-w-3xl w-full h-auto rounded-xl shadow-xl">
+                <p class="text-center mb-8 text-slate-700">Young people applying in hopes of coming to Japan — in the Philippines</p>
+            </div>
+        </section>
+
+        <section id="problems" class="mb-12 pt-16 -mt-16">
+            <h2 class="section-title">Harsh Regulations Embedded in the Proposal</h2>
+            <p class="text-center mb-8 text-slate-700">The Ikusei-Shurō proposal contains alarming elements that could shake the very foundations of small and micro enterprises. We detail three key points below.</p>
+            
+            <div class="space-y-8">
+                <div class="problem-card">
+                    <h3 class="text-2xl font-semibold accent-text mb-3">Issue 1: “Japanese-Language Qualification Requirement” That Drives Talent Away</h3>
+                    <p class="mb-2"><strong class="text-red-600">What the proposal requires:</strong> Those who wish to work in Japan must, before employment, either pass Japanese language level A1 (roughly JLPT N5) or complete coursework at a certified Japanese-language education institution. To become a Specified Skilled Worker, even higher levels of Japanese certification are required.</p>
+                    <p class="mb-3"><strong class="text-red-600">Concerns on the ground:</strong> Why impose excessive effort, cost, and time on foreign nationals who already struggle to find work in their home countries? With the triple blow of a weak yen, rising prices, and heavier public burdens reducing their take-home pay in Japan, adding a difficult language qualification is a blunder tantamount to surrendering the competition for talent to neighboring countries.</p>
+                    <div class="my-6 flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-full md:w-2/5 flex-shrink-0">
+                            <div class="h-51 overflow-hidden rounded-lg shadow-md"> 
+                                <img src="https://i.imgur.com/8Ld7pbf.gif" alt="Share of JLPT test-takers by background: Elementary 2.3%, Middle/High school 11.7%, University/Graduate 42.2%, Language schools etc. 6.0%, Employed 27.6%, Other 9.0%, No answer 1.1%" class="w-full h-full object-cover object-top">
+                         　　   <p class="text-center mb-8 text-slate-700">Breakdown of JLPT test-takers by background</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-3/5 text-slate-700 text-sm">
+                            <p class="mb-2 text-sm">As the chart shows, most JLPT examinees are “students,” “researchers,” or otherwise highly educated individuals. Even among these cohorts, the pass rate for N5 is around 50%, and for N4 it is around 40%.</p>
+                            <p class="mb-2 text-sm"></p>
+                            <p class="text-sm">(Sources for chart and figures: Japan Foundation; Japan Educational Exchanges and Services websites.)</p>
+                        </div>
+                    </div>
+                    <p class="mb-2"><strong class="text-sky-700">Our position:</strong> The Japanese-language qualification requirement should be withdrawn. On the ground, motivation and practical ability matter more than language. We seek diligent workers who devote themselves to any task, not necessarily those with advanced language skills. There are many who work earnestly despite limited Japanese. Making certification a requirement will drive away precisely the conscientious, hardworking people we need.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3 class="text-2xl font-semibold accent-text mb-3">Issue 2: Excessive Burdens that Devastate Small and Micro Businesses</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-3 text-slate-700">
+                        <li><strong class="text-red-600">Mandatory “same wages as Japanese”:</strong> For foreign workers who already possess a certain level of professional skill (e.g., Specified Skilled Workers), comparable pay is understandable. But is “the same as Japanese employees” appropriate for newcomers who have yet to learn the job and everything else?</li>
+                        <li><strong class="text-red-600">Seniority-like pay increases based on time employed:</strong> This is reminiscent of a socialist rule. Has the long-abandoned seniority system been resurrected—but only for foreign workers?</li>
+                        <li><strong class="text-red-600">Taking work hours away for qualifications training?</strong> We already carve out work time so trainees can study for skills tests. Now we are told to find an additional 100 hours for Japanese study—at company expense.</li>
+                        <li><strong class="text-red-600">Costs that keep rising:</strong> Wages will rise. In some sending countries, even reasonable dorm fees cannot be charged. Under the labels of tuition, fees, and exam charges, money is being siphoned off to government-related bodies one after another. Membership fees for sectoral councils may also be added.</li>
+                    </ul>
+                    <div class="my-4 p-4 bg-amber-100 border-l-4 border-amber-500 text-amber-700 rounded-md">
+                        <p class="font-bold text-lg">Estimated additional burden: <span class="text-2xl text-red-600">roughly 1,000,000+ JPY per worker</span></p>
+                        <p class="text-sm">(This likely increases further when factoring in reduced productivity from fewer work hours, higher social insurance contributions, and other expenses.)</p>
+                    </div>
+                    <p class="mb-2"><strong class="text-red-600">Concerns on the ground:</strong> Even now, accepting just one trainee requires paperwork the size of a weekly magazine. After returning from factories, sites, and fields, we struggle with unfamiliar office tasks. Please reduce the paperwork. Do not add further obligations or administrative procedures.</p>
+                    <p class="mb-2"><strong class="text-sky-700">Our position:</strong> People are the lifeblood of small and micro businesses. But without considering costs, we cannot invest endlessly in hiring. Without people, performance falls; without profits, there will be no successors.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3 class="text-2xl font-semibold accent-text mb-3">Issue 3: Headcount Caps and Heavier Workloads That Cripple Supervisory Organizations</h3>
+                    <p class="mb-2"><strong class="text-slate-700">Current role:</strong> Supervisory organizations (cooperatives and chambers) have supported small and micro businesses by managing, educating, and resolving issues for foreign trainees, acting as a bridge to government and sending countries.</p>
+                    <p class="mb-3"><strong class="text-red-600">Government-led black-boxing:</strong> Under the Ikusei-Shurō Program, supervisory organizations would face strict caps on scale while their workloads expand.</p>
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="p-3 bg-rose-50 rounded-md border border-rose-200">
+                            <h4 class="font-semibold text-rose-700 mb-1">Unrealistic supervision limits</h4>
+                            <ul class="list-disc list-inside text-sm text-rose-600">
+                                <li>Each staff member may supervise up to 8 companies</li>
+                                <li>Each staff member may supervise up to 40 workers</li>
+                            </ul>
+                        </div>
+                        <div class="p-3 bg-rose-50 rounded-md border border-rose-200">
+                            <h4 class="font-semibold text-rose-700 mb-1">Do this, and that, and the other…</h4>
+                            <ul class="list-disc list-inside text-sm text-rose-600">
+                                <li>Regular audits, ad-hoc audits, site guidance, periodic reports</li>
+                                <li>Stricter reporting and contact with authorities</li>
+                                <li>Support for worker job changes</li>
+                                <li>Japanese-language education and skills support</li>
+                                <li>Strict neutrality rather than siding with small businesses</li>
+                                <li>Mandatory external auditors</li>
+                                <li>Restrictions on staff eligible to conduct audits</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="mb-2"><strong class="text-red-600"></strong></p>
+                    <p class="mb-2"><strong class="text-sky-700">Our position:</strong> We firmly oppose capping the number of companies and foreign nationals that can be supervised based on an organization’s headcount. Is there scientific evidence that limiting one staff member to 8 companies and 40 workers will dramatically improve management of foreign workers? Numerical caps are not only meaningless; they will clearly create “supervisory-orphaned” companies and workers who fall outside the cap.</p>
+                </div>
+            </div>
+        </section>
+<section id="voices" class="mb-12 pt-16 -mt-16">
+  <h2 class="section-title">Voices from the Field</h2>
+
+  <div class="space-y-8">
+    <!-- 1 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        Are you serious about making trainees obtain a Japanese-language qualification before entry? How exactly are we supposed to have them study for the exam? How will you administer tests for hundreds of thousands of examinees? Who pays? People who have the time, money, and aptitude to study a foreign language generally do not choose to come to Japan to do dirty or heavy labor. You clearly don’t understand realities. You will end up losing diligent, devoted workers.
       </p>
-    </section>
+      <footer class="text-sm text-slate-500">- Rebar contractor</footer>
+    </blockquote>
 
-    <section>
-      <h2>Key Activities</h2>
-      <ul>
-        <li>Monitoring and supervising training programs</li>
-        <li>Supporting both trainees and companies</li>
-        <li>Providing consultation on laws and systems</li>
-        <li>Promoting public awareness of related issues</li>
-      </ul>
-    </section>
-  </main>
+    <!-- 2 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        With stricter regulations, the number of trainees will certainly drop. The ones who will suffer most are Japanese workers, because they will have to do the jobs currently handled by trainees. Our lines of work are ones no one willingly wants to do. Young Japanese won’t even look at them. The number of people willing to take over will dwindle further. Japanese-language education, new obligations, more paperwork—are you trying to force us out of business?
+      </p>
+      <footer class="text-sm text-slate-500">- Civil engineering contractor</footer>
+    </blockquote>
 
-  <footer>
-    <p>&copy; 2025 NASO - National Association of Supervising Organizations</p>
-  </footer>
+    <!-- 3 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        I have worked with a supervisory organization for over 20 years to train Filipino workers. We have had no absconders, no major accidents, and our company has grown. Recently, the organization told us, “When Ikusei-Shurō starts in two years, we may not be able to work with your company due to headcount limits.” I have no idea what to do. There are no problems; our company, the trainees, and the supervisory organization coexist well. Why would you break this apart?
+      </p>
+      <footer class="text-sm text-slate-500">- Interior finishing contractor</footer>
+    </blockquote>
+  </div>
+</section>
+<!-- ★Keep local style for the speech bubbles -->
+<style>
+.speech {
+  position: relative;
+}
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 36px;
+  border-width: 14px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+.speech::before {
+  content: "";
+  position: absolute;
+  bottom: -26px;
+  left: 35px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: #e2e8f0 transparent transparent transparent;
+}
+</style>
+        <section id="call-to-action" class="pt-16 -mt-16">
+            <div class="bg-white p-8 rounded-lg shadow-xl text-center">
+                <h2 class="section-title">Let’s Make These Voices Heard</h2>
+                <p class="text-xl text-red-700 font-semibold mb-4">
+                    To stop this merciless legislation, only political action remains.<br>Please petition the Diet members elected from your local districts.
+                </p>
+                <p class="mb-6 text-slate-700 text-left">
+                    The fear we feel now is not the mere paranoia of small and micro businesses. One administrative scrivener notes that if we become so fixated on “protecting foreigners” and “procedures for acceptance” that we end up destroying companies, that’s putting the cart before the horse. A JICA report also states that if this law is enforced, Japan will likely become a country not chosen by foreign workers.
+                </p>
+                <div class="mt-8 p-4 bg-sky-50 rounded-md border border-sky-200">
+                    <p class="text-slate-600"></p>
+                    <p class="text-3xl font-bold text-blue-800">Volunteer Alliance Pursuing Problems with the Ikusei-Shurō Program</p>
+                    <p class="text-3xl text-slate-600 mt-2">National Association of Supervisory Organizations (NASO)</p>
+                    <p class="text-slate-600 mt-2 text-2xl">Send comments to: kyx04112@nifty.com</p>
+                </div>
+                <p class="mt-8 text-slate-600 text-center">
+                    To protect the path for small and micro businesses to secure talent and to give successors dreams and hope, let us speak up and take action.<br>Do not be intimidated by authorities, experts, or the media. Our rights to express and to petition are guaranteed by the Constitution.
+                </p>
+                  <!-- SNS share buttons -->
+<!-- === Share series (icons + colors / at end of the card) === -->
+<div id="share" class="mt-6 flex flex-wrap items-center justify-center gap-2">
+  <!-- Facebook -->
+  <a data-share="fb" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-[#1877F2] hover:opacity-90"
+     aria-label="Share on Facebook">
+    <!-- FB icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 5.02 3.66 9.19 8.44 9.99v-7.06H7.9v-2.94h2.4V9.41c0-2.37 1.41-3.68 3.57-3.68 1.03 0 2.1.18 2.1.18v2.31h-1.19c-1.18 0-1.55.73-1.55 1.48v1.78h2.64l-.42 2.94h-2.22v7.06c4.78-.79 8.44-4.96 8.44-9.99z"/>
+    </svg>
+    <span>Facebook</span>
+  </a>
+
+  <!-- X (Twitter) -->
+  <a data-share="x" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-black hover:opacity-90"
+     aria-label="Share on X">
+    <!-- X icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.7 10.6 21.5 2h-1.9l-6.8 7.7L7.1 2H2l8.2 11.6L2 22h1.9l7.3-8.2 6.1 8.2H22l-8.3-11.4z"/>
+    </svg>
+    <span>X</span>
+  </a>
+
+  <!-- LINE -->
+  <a data-share="line" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-[#06C755] hover:opacity-90"
+     aria-label="Send via LINE">
+    <!-- LINE icon (speech bubble) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 3H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+    </svg>
+    <span>LINE</span>
+  </a>
+
+  <!-- Email -->
+  <a data-share="mail" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-slate-600 hover:opacity-90"
+     aria-label="Share by email">
+    <!-- Mail icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-4-2.5L4 8V6l8 5 8-5v2z"/>
+    </svg>
+    <span>Email</span>
+  </a>
+</div>
+
+<script>
+  (function () {
+    const url   = encodeURIComponent(location.href);
+    const title = encodeURIComponent(document.title);
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const root = document.getElementById('share');
+
+    if (!root) return;
+
+    const fb   = $('a[data-share="fb"]', root);
+    const x    = $('a[data-share="x"]', root);
+    const line = $('a[data-share="line"]', root);
+    const msgr = $('a[data-share="messenger"]', root);
+    const mail = $('a[data-share="mail"]', root);
+
+    if (fb)   fb.href   = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    if (x)    x.href    = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    if (line) line.href = `https://social-plugins.line.me/lineit/share?url=${url}`;
+
+    /* Messenger (optional): app first on mobile, dialog fallback on desktop */
+    if (msgr) {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        msgr.href = `fb-messenger://share/?link=${url}`;
+      } else {
+        /* Replace app_id with your FB App ID for best results; may still open without */
+        msgr.href = `https://www.facebook.com/dialog/send?link=${url}&app_id=123456789&redirect_uri=${url}`;
+      }
+    }
+
+    if (mail) mail.href = `mailto:?subject=${title}&body=${url}`;
+  })();
+</script>
+<!-- === /Share series === -->
+                </div> <!-- ← closing tag for the white card (bg-white p-8 …) -->
+            <div class="text-center my-12 px-4">
+            <img src="https://i.imgur.com/vrXTcWt.jpeg5" alt="Trainees finishing a rebar assembly task in the skills test under the Technical Intern Training Program, smiling with a sense of accomplishment" class="inline-block max-w-3xl w-full h-auto rounded-xl shadow-xl">
+            <p class="text-center mb-8 text-slate-700">Trainees preparing for a certification exam</p>
+        <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123">
+</script>
+ <div>
+<!-- ▼ Related content ▼ -->
+<section id="related" class="related">
+  <h2 class="section-title">Related Content</h2>
+
+  <div class="card-container">
+    <!-- Facebook card -->
+    <div class="card card--tight">
+      <h3>Facebook</h3>
+      <div class="card-content fb-wrapper">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous"
+          src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
+
+        <div class="fb-page"
+             data-href="https://www.facebook.com/marucon.info/"
+             data-tabs="timeline"
+             data-height="400"
+             data-small-header="false"
+             data-adapt-container-width="true"
+             data-hide-cover="false"
+             data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/marucon.info/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/marucon.info/">View our Facebook page</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube card -->
+    <div class="card card--tight">
+      <h3>YouTube</h3>
+      <div class="card-content">
+        <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
+          <div class="yt-fixed">
+            <!-- 95% scaled thumbnail -->
+            <div class="yt-video">
+              <img
+                src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
+                alt="Video 1"
+                class="w-[95%] h-auto mx-auto object-cover group-hover:opacity-80 transition"
+              />
+              <!-- Play icon -->
+              <svg class="absolute inset-0 m-auto w-14 h-14 opacity-80 pointer-events-none" viewBox="0 0 24 24" fill="white">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <!-- Title centered -->
+            <div class="yt-title flex items-center justify-center">
+              <p class="text-sm text-slate-700">Video 1</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Overall layout */
+.related {
+  margin: 40px auto;
+  max-width: 1100px;
+}
+.related h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Card layout */
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  flex: 1 1 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card h3 {
+  text-align: center;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 10px;
+  font-size: 16px;
+}
+.card-content {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Facebook plugin */
+.fb-wrapper { width: 100%; }
+.fb-page { width: 100% !important; }
+
+/* YouTube custom */
+.yt-fixed {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.yt-video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.yt-title {
+  margin-top: 8px;
+  text-align: center;
+}
+</style>
+
+<section class="partners" id="partners">
+  <h2 class="section-title">協力会社 / Partners</h2>
+
+  <div class="partners-logos">
+    <a href="http://marucon.info/" target="_blank" rel="noopener">
+      <img src="./images/marucon-logo.png" alt="Marucon partner logo" loading="lazy">
+    </a>
+    <a href="https://www.facebook.com/marutora.info" target="_blank" rel="noopener">
+      <img src="./images/marutora-logo.png" alt="Marutora partner logo" loading="lazy">
+    </a>
+    <a href="https://tricastleinternational.com/" target="_blank" rel="noopener">
+      <img src="./images/tricastle-logo.png" alt="Tricastle partner logo" loading="lazy">
+    </a>
+    <a href="https://www.kouryucenter.net/works.html" target="_blank" rel="noopener">
+      <img src="./images/koryuchushin-logo.png" alt="Koryu Center partner logo" loading="lazy">
+    </a>
+    <a href="https://www.aic.kouryucenter.net/about" target="_blank" rel="noopener">
+      <img src="./images/asakusagakuin-logo.png" alt="Asakusa Gakuin partner logo" loading="lazy">
+    </a>
+    <a href="https://www.takumi-union.com/" target="_blank" rel="noopener">
+      <img src="./images/sainokuni-logo.png" alt="Sainokuni partner logo" loading="lazy">
+    </a>
+  </div>
+</section>
+
+<style>
+  .partners-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* auto-adjust */
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+  }
+  .partners-logos img {
+    height: 80px;
+    width: auto;
+    max-width: 100%;
+  }
+</style>
+
+<!-- Floating buttons at page bottom -->
+<div id="fixed-buttons">
+
+  <!-- Speech bubble -->
+  <div class="bubble">
+    Tell us what you’re seeing on the ground
+  </div>
+
+  <!-- Envelope button (Google Form) -->
+  <a href="https://forms.gle/Si4rsNDTvfctbZ8e7" target="_blank" class="mail-fab" title="Feedback Form">
+    <!-- Envelope icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 
+               2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
+               4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+  </a>
+
+  <!-- Back to top -->
+  <a href="#top" class="back-to-top">▲</a>
+
+</div>
+
+<style>
+/* Container for fixed buttons (right side) */
+#fixed-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* bubble aligns right */
+  gap: 12px;
+  z-index: 10000;
+}
+
+/* Speech bubble */
+.bubble {
+  background: #fff;
+  color: #333;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  position: relative;
+  max-width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin: 0;
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: -10px;
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Envelope FAB */
+.mail-fab {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.mail-fab:hover {
+  background-color: #ef4444;
+}
+
+/* Back-to-top button */
+.back-to-top {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #1d4ed8;
+  text-align: center;
+  line-height: 48px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.back-to-top:hover {
+  background-color: #2563eb;
+}
+</style>
+
+
+<!-- /Floating buttons -->
+
+<footer class="accent-bg text-white text-center py-6 mt-12">
+  <p>&copy; 2025 This appeal is presented as an urgent issue affecting the survival of small and micro businesses.</p>
+</footer>
+
+<script>
+  // Smooth scroll functionality
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    // Update active nav button (optional visual feedback)
+    const buttons = document.querySelectorAll('.nav-button');
+    buttons.forEach(button => {
+      button.classList.remove('active-nav');
+      if (button.getAttribute('onclick').includes(sectionId)) {
+        button.classList.add('active-nav');
+      }
+    });
+  }
+
+  // Set initial active nav button based on initial view
+  window.addEventListener('DOMContentLoaded', () => {
+    const firstNavButton = document.querySelector('.nav-button');
+    if (firstNavButton) {
+      firstNavButton.classList.add('active-nav');
+    }
+  });
+</script>
+
 </body>
 </html>
