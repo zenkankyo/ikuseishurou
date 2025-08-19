@@ -1,417 +1,638 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>育成就労制度への問題提起</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="google-site-verification" content="TmZslLybA1iqguu3bHIISYwuS9fliPRTT6xiY7IHfxw" />
-
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .tab-content { display:none; } .tab-content.active { display:block; }
-
-    /* 見出しスタイル（大きく保つ） */
-    .section-title {
-      font-size: 1.875rem; font-weight:700; color:#b91c1c;
-      margin-bottom:1.5rem; text-align:center;
-    }
-    .accent-bg { background-color:#0284c7; }
-    .accent-text { color:#0284c7; }
-    .nav-button { padding:.5rem 1rem; border-radius:.375rem; transition:background-color .3s; }
-    .nav-button:hover { background-color:#0369a1; }
-    .nav-button.active-nav { background-color:#0ea5e9; font-weight:600; }
-
-    .problem-card {
-      border:1px solid #e2e8f0; border-radius:.5rem; padding:1.5rem; background:#fff;
-      box-shadow:0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
-    }
-
-    /* 現場の声 吹き出し（三角は下） */
-    .speech { position:relative; }
-    .speech::after{
-      content:""; position:absolute; bottom:-24px; left:36px;
-      border-width:14px; border-style:solid;
-      border-color:#ffffff transparent transparent transparent;
-    }
-    .speech::before{
-      content:""; position:absolute; bottom:-26px; left:35px;
-      border-width:15px; border-style:solid;
-      border-color:#e2e8f0 transparent transparent transparent;
-    }
-
-    /* ===== 関連コンテンツ（FB＋YouTube） ===== */
-    #related { max-width:1100px; margin:40px auto; padding:0 16px; }
-    #related .section-title { margin-bottom:24px; }
-
-    .card-row { display:grid; grid-template-columns:1fr; gap:20px; }
-    @media (min-width:768px){ .card-row{ grid-template-columns:1fr 1fr; } }
-
-    .card{
-      background:#fff; border:1px solid #ddd; border-radius:8px;
-      box-shadow:0 2px 6px rgba(0,0,0,.1);
-      display:flex; flex-direction:column; overflow:hidden;
-    }
-    .card h3{
-      background:#f3f4f6; margin:0; padding:10px; font-size:16px; font-weight:700; text-align:center;
-    }
-    .card .card-content{ padding:0; flex:1; display:flex; flex-direction:column; justify-content:center; }
-    .card.card--tight h3{ margin:0 0 8px; }
-
-    /* FB：横幅フィット（高さは data-height） */
-    .fb-wrapper{ width:100%; }
-    .fb-page{ width:100% !important; }
-
-    /* YouTube：95%縮小＋タイトル中間／高さFBと揃える */
-    .card--youtube .yt-grid{
-      display:grid; grid-template-rows:auto 1fr; height:400px; position:relative;
-    }
-    .card--youtube .yt-thumb{
-      width:95%; aspect-ratio:16/9; justify-self:center;
-      border-radius:8px; overflow:hidden; position:relative;
-    }
-    .card--youtube .yt-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .card--youtube .yt-play{
-      position:absolute; inset:0; margin:auto; width:56px; height:56px; opacity:.8; pointer-events:none;
-    }
-    .card--youtube .yt-title{ align-self:center; text-align:center; margin-top:6px; }
-
-    /* Partners */
-    #partners{ max-width:1100px; margin:40px auto; padding:0 16px; }
-    .logo-grid{
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
-      gap:30px; align-items:center; justify-items:center;
-    }
-    .logo-grid img{ max-height:100px; width:auto; object-fit:contain; }
-
-    /* 固定ボタン */
-    #fixed-buttons{
-      position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; align-items:flex-end;
-      gap:12px; z-index:10000;
-    }
-    .bubble{
-      background:#fff; color:#333; padding:10px 16px; border-radius:12px; border:1px solid #ddd;
-      font-size:14px; max-width:220px; box-shadow:0 2px 6px rgba(0,0,0,.15); margin:0; position:relative;
-    }
-    .bubble::after{
-      content:""; position:absolute; right:12px; bottom:-10px;
-      border-width:10px 10px 0 10px; border-style:solid; border-color:#fff transparent transparent transparent;
-    }
-    .mail-fab{
-      width:48px; height:48px; border-radius:50%; background:#dc2626; display:flex; align-items:center; justify-content:center;
-      color:#fff; text-decoration:none; box-shadow:0 4px 6px rgba(0,0,0,.2); transition:background-color .3s;
-    }
-    .mail-fab:hover{ background:#ef4444; }
-    .back-to-top{
-      width:48px; height:48px; border-radius:50%; background:#1d4ed8; color:#fff; text-decoration:none;
-      line-height:48px; text-align:center; font-size:20px; box-shadow:0 4px 6px rgba(0,0,0,.2); transition:background-color .3s;
-    }
-    .back-to-top:hover{ background:#2563eb; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>育成就労制度への問題提起</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Visualization & Content Choices:
+        - Overview: Text summary, key stats (e.g., 200+ SMEs). Goal: Establish context/urgency. Method: HTML/Tailwind.
+        - Problem 1 (Language): Text + Image and Text. Goal: Show increased difficulty. Interaction: None. Justification: Visual impact for abstract hurdle.
+        - Problem 2 (Company Burden): Text + Prominent display of cost increase. Goal: Quantify financial impact. Method: HTML/Tailwind styled text. Interaction: None. Justification: Directness.
+        - Problem 3 (Supervising Org.): Text + HTML/CSS diagram (Before/After). Goal: Illustrate structural negative change. Method: HTML/Tailwind. Interaction: None. Justification: Clear comparison.
+        - Voices: Direct quotes. Goal: Humanize impact. Method: HTML/Tailwind blockquotes.
+        - Call to Action: Strong text, petitioner info. Goal: Reinforce demand. Method: HTML/Tailwind.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Chart.js removed as chart was replaced. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        /* Removed .chart-container styles as it's no longer used for the JLPT image section */
+        .problem-card {
+            border: 1px solid #e2e8f0; /* slate-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1.5rem; /* p-6 */
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        .section-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #b91c1c; /* text-red-700 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            text-align: center;
+        }
+        .accent-bg { background-color: #0284c7; /* bg-sky-600 */ }
+        .accent-text { color: #0284c7; /* text-sky-600 */ }
+        .nav-button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: #0369a1; /* sky-700 */
+        }
+        .nav-button.active-nav {
+            background-color: #0ea5e9; /* sky-500 */
+            font-weight: 600;
+        }
+    </style>
+<meta name="google-site-verification" content="TmZslLybA1iqguu3bHIISYwuS9fliPRTT6xiY7IHfxw" />
 </head>
-
 <body class="bg-slate-100 text-slate-800">
 <a id="top"></a>
-
 <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between py-3">
+      
+      <!-- 左：ロゴ -->
       <a href="/ikuseishurou/" class="flex items-center gap-3 shrink-0">
-        <img src="./images/NASO-logo.png" alt="全国監理団体協会ロゴ" class="h-16 md:h-24 w-auto" />
+      <img
+  src="./images/NASO-logo.png"
+  alt="全国監理団体協会ロゴ"
+  class="h-16 md:h-24 w-auto"
+/>
       </a>
 
+      <!-- 右：ナビ -->
       <nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
         <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">問題提起</a>
         <a href="#voices" class="px-3 py-2 rounded-md hover:bg-slate-100">現場の声</a>
         <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">お問い合わせ</a>
         <a href="#partners" class="px-3 py-2 rounded-md hover:bg-slate-100">協力会社</a>
 
+        <!-- ご意見フォームボタン -->
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8AD-V9_haAllC80Jfb7ZrWETJdcNbhxNEFGXVv8tV1brozA/viewform?usp=header"
            target="_blank" rel="noopener"
            class="ml-2 px-4 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 shadow">
            ご意見フォーム
         </a>
       </nav>
+
     </div>
   </div>
 </header>
 
-<!-- メインタイトル -->
+
+<!-- メインタイトル セクション -->
 <section class="bg-blue-600 text-white py-16">
   <div class="container mx-auto text-center">
-    <h1 class="text-4xl md:text-6xl font-extrabold tracking-wide">育成就労制度への問題提起</h1>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-wide">
+      育成就労制度への問題提起
+    </h1>
   </div>
 </section>
 
-<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-  <!-- 概要 -->
-  <section id="overview" class="mb-12 pt-16 -mt-16">
-    <h2 class="section-title">問題提起の背景と緊急性</h2>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="mb-4 text-lg">
-        本提言は、全国監理団体協会（全監協）の会長･新井和男氏が、政府の進める「育成就労制度」に対し、その施行がもたらすであろう深刻な影響について警鐘を鳴らし、見直しを求めるものです。
-      </p>
-      <p class="mb-4">
-        技能実習制度に代わるこの新制度案は、過酷な規制、少子高齢化と人手不足の実態を顧みず、そして何より日本で働こうとする外国人材の意欲を削ぐ内容であると強く批判しています。
-      </p>
-      <p class="mt-3">
-        <a href="./what-is/" class="text-blue-600 underline hover:text-blue-800">▶ 新制度について詳しい記事はこちら</a>
-      </p>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="overview" class="mb-12 pt-16 -mt-16">
+            <h2 class="section-title">問題提起の背景と緊急性</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="mb-4 text-lg">
+                    本提言は、全国監理団体協会（全監協）の会長･新井和男氏が、政府の進める「育成就労制度」に対し、その施行がもたらすであろう深刻な影響について警鐘を鳴らし、見直しを求めるものです。
+                </p>
+                <p class="mb-4">
+                    技能実習制度に代わるこの新制度案は、過酷な規制、少子高齢化と人手不足の実態を顧みず、そして何より日本で働こうとする外国人材の意欲を削ぐ内容であると強く批判しています。
+                </p><p class="mt-3">
+  <a href="./what-is/" class="text-blue-600 underline hover:text-blue-800">
+    ▶ 新制度について詳しい記事はこちら
+  </a>
+</p>
 
-      <div class="mt-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded-md">
-        <p class="font-bold text-xl">中小零細企業のみなさん、小さな会社にとって最後の人材獲得手段である外国人採用の道が閉ざされます！</p>
-      </div>
+                <div class="mt-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded-md">
+                    <p class="font-bold text-xl">中小零細企業のみなさん、小さな会社にとって最後の人材獲得手段である外国人採用の道が閉ざされます！</p>
+                </div>
+                <div class="text-center my-12 px-4">
+                <img src="https://i.imgur.com/z1QDyC2.jpeg" alt="フィリピンで行われた実習生の採用選考会で、鉄筋の実技試験を受ける若者たち" class="inline-block max-w-3xl w-full h-auto rounded-xl shadow-xl">
+                <p class="text-center mb-8 text-slate-700">日本行きを希望して応募してきた若者たち　－フィリピンにて－</p>
+            </div>
+        </section>
 
-      <div class="text-center my-12 px-4">
-        <img src="https://i.imgur.com/z1QDyC2.jpeg"
-             alt="フィリピンで行われた実習生の採用選考会で、鉄筋の実技試験を受ける若者たち"
-             class="inline-block max-w-3xl w-full h-auto rounded-xl shadow-xl">
-        <p class="text-center mb-8 text-slate-700">日本行きを希望して応募してきた若者たち　－フィリピンにて－</p>
+        <section id="problems" class="mb-12 pt-16 -mt-16">
+            <h2 class="section-title">制度に盛り込まれる過酷な規制</h2>
+            <p class="text-center mb-8 text-slate-700">育成就労制度案には、中小零細企業の存立基盤を揺るがしかねない恐ろしい問題が内包されています。要点を3つ詳述します。</p>
+            
+            <div class="space-y-8">
+                <div class="problem-card">
+                    <h3 class="text-2xl font-semibold accent-text mb-3">問題点１：外国人材を遠ざける「日本語資格取得要件」</h3>
+                    <p class="mb-2"><strong class="text-red-600">制度案の要件：</strong>日本で働きたいと希望する外国人に、就労前までに日本語能力A1相当以上（N5相当）の合格、または認定日本語教育機関での講習受講を義務づけています。特定技能者になるには、更にレベルの高い日本語資格の取得が必要です。</p>
+                    <p class="mb-3"><strong class="text-red-600">現場の懸念：</strong>ただでさえ母国では仕事がなく苦労している外国人に、過分な労力・費用・時間を強いるのはなぜですか。円安・物価高・重い公的負担の三重苦で彼らの日本での手取りが減っているのに、その上に難しい語学資格を求めるとは、周辺諸国との人材獲得競争に自ら敗北するに等しい悪手です。</p>
+                    <div class="my-6 flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-full md:w-2/5 flex-shrink-0">
+                            <div class="h-51 overflow-hidden rounded-lg shadow-md"> 
+                                <img src="https://i.imgur.com/8Ld7pbf.gif" alt=""JLPT受験者の属性を示す円グラフ。小学生2.3%、中高生11.7%、大学・大学院生42.2%、語学学校などの学生6.0%、就業者（会社員・公務員・教員・自営業など）27.6%、その他9.0%、無回答1.1%。"" class="w-full h-full object-cover object-top">
+                         　　   <p class="text-center mb-8 text-slate-700">JLPT受験者の属性別割合</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-3/5 text-slate-700 text-sm">
+                            <p class="mb-2 text-sm">グラフを見て分かるように、日本語検定試験を受験するのは「学生」「研究者」「高等教育を受けた選ばれた人たち」がほとんどです。そういう人たちがトライしても、Ｎ５の合格率は５０％ほど、Ｎ４の合格率は４０％前後です。</p>
+                            <p class="mb-2 text-sm"></p>
+                            <p class="text-sm">（グラフと数字の出典：独立行政法人国際交流基金、公益財団法人日本国際教育支援協会ホームページ）</p>
+                        </div>
+                    </div>
+                    <p class="mb-2"><strong class="text-sky-700">我々の訴え：</strong>日本語資格取得要件は撤廃すべきです。現場では、言語の壁よりも労働意欲と実務能力を重視します。我々が求める人材は、高度な語学力をもった人ではなくて、どんな仕事にも一生懸命取り組む働き手です。語学力はなくてもまじめに仕事に打ち込む人はいっぱいいます。日本語資格取得を要件にしたら、むしろ勤勉で誠実な働き手を失ってしまいます。</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3 class="text-2xl font-semibold accent-text mb-3">問題点２：中小零細企業を絶望させる過剰な負担</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-3 text-slate-700">
+                        <li><strong class="text-red-600">日本人と同等給与の義務化：</strong>専門技能がある程度身についている外国人（例えば特定技能）であれば「日本人と同等の給与」は分かります。これから仕事も何もかも覚える来日したての外国人に「日本人と同等の給与」はありですか？</li>
+                        <li><strong class="text-red-600">就労期間に応じた昇給：</strong>まるで社会主義国のようなルールです。とうに滅んだ年功序列を外国人に限り復活ですか。</li>
+                        <li><strong class="text-red-600">仕事時間を削って資格教育？：</strong>我々はすでに、技能検定資格取得のために仕事時間を削って受検勉強させています。その上さらに100時間の日本語勉強時間を捻出しろと言われています。その費用も企業持ちです。</li>
+                        <li><strong class="text-red-600">増え続ける費用負担：</strong>給料も上がります。相手国によってはまともな寮費もとれません。講習料や手数料・受検料の名目で、次から次に政府系団体にお金が吸い上げられています。分野別協議会加入費などが上積みされるともいいます。</li>
+                    </ul>
+                    <div class="my-4 p-4 bg-amber-100 border-l-4 border-amber-500 text-amber-700 rounded-md">
+                        <p class="font-bold text-lg">試算される負担増：育成就労者一人当たり <span class="text-2xl text-red-600">約100万円以上</span></p>
+                        <p class="text-sm">(労働時間の削減による生産性低下、社会保険料増、諸経費増を含むと更に増加するでしょう)</p>
+                    </div>
+                    <p class="mb-2"><strong class="text-red-600">現場の懸念：</strong>いまでも実習生一人受け入れるのに週刊誌一冊分の書類が必要です。工場・現場・畑から帰宅して、慣れない事務作業に四苦八苦しています。書類の量を減らしてください。これ以上の義務や役所対応を追加しないでください</p>
+                    <p class="mb-2"><strong class="text-sky-700">我々の訴え：</strong>中小零細企業は人が命です。しかし、損得勘定抜きに人材確保にお金は掛けられません。人がいなければ業績は落ち、儲からなければ後継者は出てきません。</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3 class="text-2xl font-semibold accent-text mb-3">問題点３：監理団体の機能不全を招く規模制限と業務量増大</h3>
+                    <p class="mb-2"><strong class="text-slate-700">現状の役割：</strong>監理団体（協同組合や商工会）は、外国人実習生の管理・教育・問題解決のノウハウを駆使し、行政や派遣国との橋渡し役として中小零細企業を支えてきました。</p>
+                    <p class="mb-3"><strong class="text-red-600">行政主導によるブラック化：</strong>育成就労制度では、監理団体の規模を大幅に制限しつつ、業務量は増大させることになっています。</p>
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="p-3 bg-rose-50 rounded-md border border-rose-200">
+                            <h4 class="font-semibold text-rose-700 mb-1">非現実的な監理制限</h4>
+                            <ul class="list-disc list-inside text-sm text-rose-600">
+                                <li>職員１人で８社までの監理に限る</li>
+                                <li>職員１人で育成就労者４０人社までの監理に限る</li>
+                            </ul>
+                        </div>
+                        <div class="p-3 bg-rose-50 rounded-md border border-rose-200">
+                            <h4 class="font-semibold text-rose-700 mb-1">あれもやれこれもやれそれもやれ…</h4>
+                            <ul class="list-disc list-inside text-sm text-rose-600">
+                                <li>定期監査・臨時監査・訪問指導・定期報告</li>
+                                <li>行政への連絡・報告の徹底化</li>
+                                <li>外国人の転職の支援</li>
+                                <li>日本語教育・技能の習得支援</li>
+                                <li>中小零細企業に寄り添うのではなく厳正な中立性</li>
+                                <li>外部監査人設置義務化</li>
+                                <li>監査にあたれる役職員の制限</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="mb-2"><strong class="text-red-600"></p>
+                    <p class="mb-2"><strong class="text-sky-700">我々の訴え：</strong>団体の職員数によって監理できる企業数と外国人数を制限することに断固反対です。職員一人につき８社・４０人。この人数に制限すると画期的に外国人管理が改善されるという科学的な証拠はありますか？　数的制限は意味がないばかりでなく、監理団体難民（制限数からあぶれた企業や外国人）が大量に発生するのは火を見るよりあきらかです。</p>
+                </div>
+            </div>
+        </section>
+<section id="voices" class="mb-12 pt-16 -mt-16">
+  <h2 class="section-title">現場の声</h2>
+
+  <div class="space-y-8">
+    <!-- 1枚目 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        入国前に実習生に日本語資格をとらせるって本気ですか？　どうやって受験勉強させるのですか、何十万人もの受験者の試験はどうやって実施するのですか、費用は誰がもつのですか。そもそも外国語を勉強する余裕（時間とお金と頭の良さ）のある人は、日本へ来て汚れ仕事や力仕事をやろうと思いませんよ。実態をまるで分かっていない。むしろ、勤勉で献身的な労働者を失うことになります。
+      </p>
+      <footer class="text-sm text-slate-500">- 鉄筋業者</footer>
+    </blockquote>
+
+    <!-- 2枚目 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        規制強化で実習生は確実に減るでしょうね。実習生が減って一番困るのは日本の労働者です。実習生がやっている仕事を自分たちでやらなければならないのですから。我々の生業は誰もすすんでやりたがらない仕事です。日本人の若者は鼻も引っかけません。ますます担い手がいなくなります。日本語教育だとか新たな義務だとか書類だとか、我々を廃業に追い込みたいのですか。
+      </p>
+      <footer class="text-sm text-slate-500">- 土木業者</footer>
+    </blockquote>
+
+    <!-- 3枚目 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        20年以上監理団体と一緒にフィリピン人を育ててきた者です。一人の失踪者もなく、大きな事故もなく、会社も発展しました。先日監理団体の人から『2年後に育成就労が始まったら人数制限をされるので、御社とはお付き合いできなくなるかもしれない』と言われました。どうしてよいか分かりません。何の問題もなく、会社・実習生・監理団体で共生しているのに、それを分断する理由を教えてください。
+      </p>
+      <footer class="text-sm text-slate-500">- 内装業者</footer>
+    </blockquote>
+  </div>
+</section>
+<!-- ★ここで style をまとめて書く -->
+<style>
+.speech {
+  position: relative;
+}
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 36px;
+  border-width: 14px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+.speech::before {
+  content: "";
+  position: absolute;
+  bottom: -26px;
+  left: 35px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: #e2e8f0 transparent transparent transparent;
+}
+</style>
+        <section id="call-to-action" class="pt-16 -mt-16">
+            <div class="bg-white p-8 rounded-lg shadow-xl text-center">
+                <h2 class="section-title">現場の声を届けよう</h2>
+                <p class="text-xl text-red-700 font-semibold mb-4">
+                    この無慈悲な法律を止めるには、もはや政治の力しかありません。<br>中小零細企業のみなさん、地元選出の議員に陳情してください。
+                </p>
+                <p class="mb-6 text-slate-700 text-left">
+                    いま我々が感じている恐怖は決して中小零細企業の被害妄想ではありません。ある行政書士は、外国人保護と受け入れ手続きに熱中するあまり、企業を潰してしまったのでは本末転倒だと言っています。この法律が施行されたら、日本は外国人労働者に選ばれない国になるだろうと国際協力機構（ＪＩＣＡ）のレポートにも書かれています。
+                </p>
+                <div class="mt-8 p-4 bg-sky-50 rounded-md border border-sky-200">
+                    <p class="text-slate-600"></p>
+                    <p class="text-3xl font-bold text-blue-800">育成就労制度の問題点を追及する有志連合</p>
+                    <p class="text-3xl text-slate-600 mt-2">全国監理団体協会（全監協）</p>
+                    <p class="text-slate-600 mt-2 text-2xl">ご意見送付先：kyx04112@nifty.com</p>
+                </div>
+                <p class="mt-8 text-slate-600 text-center">
+                    中小零細企業の人材確保の道を守り、後継者に夢と希望を与えるために、発言と行動に打って出ましょう。<br>行政や有識者・マスコミに気後れする必要はありません。我々には表現し請願する権利が憲法で保証されています。
+                </p>
+                  <!-- SNSシェアボタン -->
+<!-- === 共有シリーズ（アイコン＋色分け／カード内の最後） === -->
+<div id="share" class="mt-6 flex flex-wrap items-center justify-center gap-2">
+  <!-- Facebook -->
+  <a data-share="fb" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-[#1877F2] hover:opacity-90"
+     aria-label="Facebookでシェア">
+    <!-- FBアイコン -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 5.02 3.66 9.19 8.44 9.99v-7.06H7.9v-2.94h2.4V9.41c0-2.37 1.41-3.68 3.57-3.68 1.03 0 2.1.18 2.1.18v2.31h-1.19c-1.18 0-1.55.73-1.55 1.48v1.78h2.64l-.42 2.94h-2.22v7.06c4.78-.79 8.44-4.96 8.44-9.99z"/>
+    </svg>
+    <span>Facebook</span>
+  </a>
+
+  <!-- X（Twitter） -->
+  <a data-share="x" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-black hover:opacity-90"
+     aria-label="Xでシェア">
+    <!-- Xアイコン -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.7 10.6 21.5 2h-1.9l-6.8 7.7L7.1 2H2l8.2 11.6L2 22h1.9l7.3-8.2 6.1 8.2H22l-8.3-11.4z"/>
+    </svg>
+    <span>X</span>
+  </a>
+
+  <!-- LINE -->
+  <a data-share="line" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-[#06C755] hover:opacity-90"
+     aria-label="LINEで送る">
+    <!-- LINEアイコン（吹き出し） -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 3H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+    </svg>
+    <span>LINE</span>
+  </a>
+
+  <!-- メール -->
+  <a data-share="mail" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-slate-600 hover:opacity-90"
+     aria-label="メールで送る">
+    <!-- 封筒アイコン -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+    </svg>
+    <span>メール</span>
+  </a>
+</div>
+<!-- === /共有シリーズ === -->
+                </div> <!-- ← これが白いカード(bg-white p-8 …) の閉じタグ -->
+            <div class="text-center my-12 px-4">
+            <img src="https://i.imgur.com/vrXTcWt.jpeg5" alt="外国人技能実習制度の鉄筋施工技能試験で組み立て作業を終え、達成感あふれる表情を見せる実習生たち" class="inline-block max-w-3xl w-full h-auto rounded-xl shadow-xl">
+            <p class="text-center mb-8 text-slate-700">検定試験に臨む実習生たち</p>
+        <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123">
+</script>
+ <div>
+<!-- ▼ 関連コンテンツ ▼ -->
+<section id="related" class="related">
+  <h2>関連コンテンツ</h2>
+
+  <div class="card-container">
+    <!-- Facebookカード -->
+    <div class="card card--tight">
+      <h3>Facebook</h3>
+      <div class="card-content fb-wrapper">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous"
+          src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
+
+        <div class="fb-page"
+             data-href="https://www.facebook.com/marucon.info/"
+             data-tabs="timeline"
+             data-height="400"
+             data-small-header="false"
+             data-adapt-container-width="true"
+             data-hide-cover="false"
+             data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/marucon.info/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/marucon.info/">Facebookページを見る</a>
+          </blockquote>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- 問題点 -->
-  <section id="problems" class="mb-12 pt-16 -mt-16">
-    <h2 class="section-title">制度に盛り込まれる過酷な規制</h2>
-    <p class="text-center mb-8 text-slate-700">育成就労制度案には、中小零細企業の存立基盤を揺るがしかねない恐ろしい問題が内包されています。要点を3つ詳述します。</p>
-
-    <div class="space-y-8">
-      <div class="problem-card">
-        <h3 class="text-2xl font-semibold accent-text mb-3">問題点１：外国人材を遠ざける「日本語資格取得要件」</h3>
-        <p class="mb-2"><strong class="text-red-600">制度案の要件：</strong>日本で働きたいと希望する外国人に、就労前までに日本語能力A1相当以上（N5相当）の合格、または認定日本語教育機関での講習受講を義務づけています。特定技能者になるには、更にレベルの高い日本語資格の取得が必要です。</p>
-        <p class="mb-3"><strong class="text-red-600">現場の懸念：</strong>ただでさえ母国では仕事がなく苦労している外国人に、過分な労力・費用・時間を強いるのはなぜですか。円安・物価高・重い公的負担の三重苦で彼らの日本での手取りが減っているのに、その上に難しい語学資格を求めるとは、周辺諸国との人材獲得競争に自ら敗北するに等しい悪手です。</p>
-
-        <div class="my-6 flex flex-col md:flex-row items-center gap-6">
-          <div class="w-full md:w-2/5 flex-shrink-0">
-            <div class="h-51 overflow-hidden rounded-lg shadow-md">
-              <img src="https://i.imgur.com/8Ld7pbf.gif"
-                   alt="JLPT受験者の属性別割合（小学生2.3%、中高生11.7%、大学・大学院生42.2%、語学学校など6.0%、就業者27.6%、その他9.0%、無回答1.1%）"
-                   class="w-full h-full object-cover object-top">
-              <p class="text-center mb-8 text-slate-700">JLPT受験者の属性別割合</p>
+    <!-- YouTubeカード -->
+    <div class="card card--tight">
+      <h3>YouTube</h3>
+      <div class="card-content">
+        <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
+          <div class="yt-fixed">
+            <!-- 95%縮小した動画（サムネ） -->
+            <div class="yt-video">
+              <img
+                src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
+                alt="動画１"
+                class="w-[95%] h-auto mx-auto object-cover group-hover:opacity-80 transition"
+              />
+              <!-- 再生アイコン -->
+              <svg class="absolute inset-0 m-auto w-14 h-14 opacity-80 pointer-events-none" viewBox="0 0 24 24" fill="white">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <!-- タイトルを中間寄せ -->
+            <div class="yt-title flex items-center justify-center">
+              <p class="text-sm text-slate-700">動画１</p>
             </div>
           </div>
-          <div class="w-full md:w-3/5 text-slate-700 text-sm">
-            <p class="mb-2 text-sm">グラフを見て分かるように、日本語検定試験を受験するのは「学生」「研究者」「高等教育を受けた選ばれた人たち」がほとんどです。そういう人たちがトライしても、Ｎ５の合格率は５０％ほど、Ｎ４の合格率は４０％前後です。</p>
-            <p class="text-sm">（グラフと数字の出典：独立行政法人国際交流基金、公益財団法人日本国際教育支援協会ホームページ）</p>
-          </div>
-        </div>
-
-        <p class="mb-2"><strong class="text-sky-700">我々の訴え：</strong>日本語資格取得要件は撤廃すべきです。現場では、言語の壁よりも労働意欲と実務能力を重視します。我々が求める人材は、高度な語学力をもった人ではなくて、どんな仕事にも一生懸命取り組む働き手です。語学力はなくてもまじめに仕事に打ち込む人はいっぱいいます。日本語資格取得を要件にしたら、むしろ勤勉で誠実な働き手を失ってしまいます。</p>
-      </div>
-
-      <div class="problem-card">
-        <h3 class="text-2xl font-semibold accent-text mb-3">問題点２：中小零細企業を絶望させる過剰な負担</h3>
-        <ul class="list-disc list-inside space-y-2 mb-3 text-slate-700">
-          <li><strong class="text-red-600">日本人と同等給与の義務化：</strong>専門技能がある程度身についている外国人（例えば特定技能）であれば「日本人と同等の給与」は分かります。これから仕事も何もかも覚える来日したての外国人に「日本人と同等の給与」はありですか？</li>
-          <li><strong class="text-red-600">就労期間に応じた昇給：</strong>まるで社会主義国のようなルールです。とうに滅んだ年功序列を外国人に限り復活ですか。</li>
-          <li><strong class="text-red-600">仕事時間を削って資格教育？：</strong>我々はすでに、技能検定資格取得のために仕事時間を削って受検勉強させています。その上さらに100時間の日本語勉強時間を捻出しろと言われています。その費用も企業持ちです。</li>
-          <li><strong class="text-red-600">増え続ける費用負担：</strong>給料も上がります。相手国によってはまともな寮費もとれません。講習料や手数料・受検料の名目で、次から次に政府系団体にお金が吸い上げられています。分野別協議会加入費などが上積みされるともいいます。</li>
-        </ul>
-        <div class="my-4 p-4 bg-amber-100 border-l-4 border-amber-500 text-amber-700 rounded-md">
-          <p class="font-bold text-lg">試算される負担増：育成就労者一人当たり <span class="text-2xl text-red-600">約100万円以上</span></p>
-          <p class="text-sm">(労働時間の削減による生産性低下、社会保険料増、諸経費増を含むと更に増加するでしょう)</p>
-        </div>
-        <p class="mb-2"><strong class="text-red-600">現場の懸念：</strong>いまでも実習生一人受け入れるのに週刊誌一冊分の書類が必要です。工場・現場・畑から帰宅して、慣れない事務作業に四苦八苦しています。書類の量を減らしてください。これ以上の義務や役所対応を追加しないでください</p>
-        <p class="mb-2"><strong class="text-sky-700">我々の訴え：</strong>中小零細企業は人が命です。しかし、損得勘定抜きに人材確保にお金は掛けられません。人がいなければ業績は落ち、儲からなければ後継者は出てきません。</p>
-      </div>
-
-      <div class="problem-card">
-        <h3 class="text-2xl font-semibold accent-text mb-3">問題点３：監理団体の機能不全を招く規模制限と業務量増大</h3>
-        <p class="mb-2"><strong class="text-slate-700">現状の役割：</strong>監理団体（協同組合や商工会）は、外国人実習生の管理・教育・問題解決のノウハウを駆使し、行政や派遣国との橋渡し役として中小零細企業を支えてきました。</p>
-        <p class="mb-3"><strong class="text-red-600">行政主導によるブラック化：</strong>育成就労制度では、監理団体の規模を大幅に制限しつつ、業務量は増大させることになっています。</p>
-
-        <div class="grid md:grid-cols-2 gap-4 my-4">
-          <div class="p-3 bg-rose-50 rounded-md border border-rose-200">
-            <h4 class="font-semibold text-rose-700 mb-1">非現実的な監理制限</h4>
-            <ul class="list-disc list-inside text-sm text-rose-600">
-              <li>職員１人で８社までの監理に限る</li>
-              <li>職員１人で育成就労者４０人社までの監理に限る</li>
-            </ul>
-          </div>
-          <div class="p-3 bg-rose-50 rounded-md border border-rose-200">
-            <h4 class="font-semibold text-rose-700 mb-1">あれもやれこれもやれそれもやれ…</h4>
-            <ul class="list-disc list-inside text-sm text-rose-600">
-              <li>定期監査・臨時監査・訪問指導・定期報告</li>
-              <li>行政への連絡・報告の徹底化</li>
-              <li>外国人の転職の支援</li>
-              <li>日本語教育・技能の習得支援</li>
-              <li>中小零細企業に寄り添うのではなく厳正な中立性</li>
-              <li>外部監査人設置義務化</li>
-              <li>監査にあたれる役職員の制限</li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="mb-2"><strong class="text-sky-700">我々の訴え：</strong>団体の職員数によって監理できる企業数と外国人数を制限することに断固反対です。職員一人につき８社・４０人。この人数に制限すると画期的に外国人管理が改善されるという科学的な証拠はありますか？　数的制限は意味がないばかりでなく、監理団体難民（制限数からあぶれた企業や外国人）が大量に発生するのは火を見るよりあきらかです。</p>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 現場の声 -->
-  <section id="voices" class="mb-12 pt-16 -mt-16">
-    <h2 class="section-title">現場の声</h2>
-    <div class="space-y-8">
-      <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
-        <p class="text-slate-700 italic mb-2">
-          入国前に実習生に日本語資格をとらせるって本気ですか？…
-        </p>
-        <footer class="text-sm text-slate-500">- 鉄筋業者</footer>
-      </blockquote>
-      <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
-        <p class="text-slate-700 italic mb-2">
-          規制強化で実習生は確実に減るでしょうね。…
-        </p>
-        <footer class="text-sm text-slate-500">- 土木業者</footer>
-      </blockquote>
-      <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
-        <p class="text-slate-700 italic mb-2">
-          20年以上監理団体と一緒にフィリピン人を育ててきた者です。…
-        </p>
-        <footer class="text-sm text-slate-500">- 内装業者</footer>
-      </blockquote>
-    </div>
-  </section>
+<style>
+/* 全体のレイアウト */
+.related {
+  margin: 40px auto;
+  max-width: 1100px;
+}
+.related h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  <!-- Call to action（そのまま） -->
-  <section id="call-to-action" class="pt-16 -mt-16">
-    <div class="bg-white p-8 rounded-lg shadow-xl text-center">
-      <h2 class="section-title">現場の声を届けよう</h2>
-      <p class="text-xl text-red-700 font-semibold mb-4">
-        この無慈悲な法律を止めるには、もはや政治の力しかありません。<br>中小零細企業のみなさん、地元選出の議員に陳情してください。
-      </p>
-      <p class="mb-6 text-slate-700 text-left">
-        いま我々が感じている恐怖は決して中小零細企業の被害妄想ではありません。…
-      </p>
+/* カードレイアウト */
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  flex: 1 1 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card h3 {
+  text-align: center;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 10px;
+  font-size: 16px;
+}
+.card-content {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-      <div class="mt-8 p-4 bg-sky-50 rounded-md border border-sky-200">
-        <p class="text-3xl font-bold text-blue-800">育成就労制度の問題点を追及する有志連合</p>
-        <p class="text-3xl text-slate-600 mt-2">全国監理団体協会（全監協）</p>
-        <p class="text-slate-600 mt-2 text-2xl">ご意見送付先：kyx04112@nifty.com</p>
-      </div>
+/* Facebookプラグイン */
+.fb-wrapper { width: 100%; }
+.fb-page { width: 100% !important; }
 
-      <!-- 共有ボタン（略：元コードを利用） -->
-      <div id="share" class="mt-6 flex flex-wrap items-center justify-center gap-2">
-        <!-- …既存の4ボタン… -->
-      </div>
-    </div>
-  </section>
+/* YouTubeカスタム */
+.yt-fixed {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.yt-video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.yt-title {
+  margin-top: 8px;
+  text-align: center;
+}
+</style>
 
-  <!-- 関連コンテンツ（FB＋YouTube） -->
-  <section id="related">
-    <h2 class="section-title">関連コンテンツ</h2>
+  <!-- ここに他のコンテンツ -->
 
-    <div class="card-row">
-      <!-- Facebook -->
-      <div class="card card--tight">
-        <h3>Facebook</h3>
-        <div class="card-content fb-wrapper">
-          <div class="fb-page"
-               data-href="https://www.facebook.com/marucon.info/"
-               data-tabs="timeline"
-               data-height="400"
-               data-small-header="false"
-               data-adapt-container-width="true"
-               data-hide-cover="false"
-               data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/marucon.info/" class="fb-xfbml-parse-ignore">
-              <a href="https://www.facebook.com/marucon.info/">Facebookページを見る</a>
-            </blockquote>
-          </div>
-        </div>
-      </div>
+<section class="partners" id="partners">
+  <h2>協力会社 / Partners</h2>
+  <div class="logo-grid">
+    <a href="http://marucon.info/" target="_blank" rel="noopener">
+      <img src="./images/marucon-logo.png" alt="マルコン 協力会社ロゴ" loading="lazy" width="300" height="100">
+    </a>
+    <a href="https://www.facebook.com/marutora.info" target="_blank" rel="noopener">
+      <img src="./images/marutora-logo.png" alt="マルトラ 協力会社ロゴ" loading="lazy" width="300" height="100">
+    </a>
+    <a href="https://tricastleinternational.com/" target="_blank" rel="noopener">
+      <img src="./images/tricastle-logo.png" alt="トライキャッスル 協力会社ロゴ" loading="lazy" width="300" height="100">
+    </a>
+    <a href="https://www.kouryucenter.net/works.html" target="_blank" rel="noopener">
+      <img src="./images/koryuchushin-logo.png" alt="交流中心 協力会社ロゴ" loading="lazy" width="300" height="100">
+    </a>
+    <a href="https://www.aic.kouryucenter.net/about" target="_blank" rel="noopener">
+      <img src="./images/asakusagakuin-logo.png" alt="浅草学院 協力会社ロゴ" loading="lazy" width="300" height="100">
+    </a>
+    <a href="https://www.takumi-union.com/" target="_blank" rel="noopener">
+      <img src="./images/sainokuni-logo.png" alt="彩の国 協力会社ロゴ" loading="lazy" width="300" height="100">
+    </a>
+  </div>
+</section>
+<script>
+  (function () {
+    const url   = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
 
-      <!-- YouTube（95%＋中央タイトル） -->
-      <div class="card card--tight card--youtube">
-        <h3>YouTube</h3>
-        <div class="card-content">
-          <div class="yt-grid">
-            <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="yt-thumb group">
-              <img src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg" alt="動画１" />
-              <svg class="yt-play" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </a>
-            <p class="yt-title text-sm text-slate-700">動画１</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    const $ = sel => document.querySelector(sel);
 
-  <!-- 協力会社 -->
-  <section class="partners" id="partners">
-    <h2 class="section-title">協力会社 / Partners</h2>
-    <div class="logo-grid">
-      <a href="http://marucon.info/" target="_blank" rel="noopener">
-        <img src="./images/marucon-logo.png" alt="マルコン 協力会社ロゴ" loading="lazy">
-      </a>
-      <a href="https://www.facebook.com/marutora.info" target="_blank" rel="noopener">
-        <img src="./images/marutora-logo.png" alt="マルトラ 協力会社ロゴ" loading="lazy">
-      </a>
-      <a href="https://tricastleinternational.com/" target="_blank" rel="noopener">
-        <img src="./images/tricastle-logo.png" alt="トライキャッスル 協力会社ロゴ" loading="lazy">
-      </a>
-      <a href="https://www.kouryucenter.net/works.html" target="_blank" rel="noopener">
-        <img src="./images/koryuchushin-logo.png" alt="交流中心 協力会社ロゴ" loading="lazy">
-      </a>
-      <a href="https://www.aic.kouryucenter.net/about" target="_blank" rel="noopener">
-        <img src="./images/asakusagakuin-logo.png" alt="浅草学院 協力会社ロゴ" loading="lazy">
-      </a>
-      <a href="https://www.takumi-union.com/" target="_blank" rel="noopener">
-        <img src="./images/sainokuni-logo.png" alt="彩の国 協力会社ロゴ" loading="lazy">
-      </a>
-    </div>
-  </section>
+    const fb   = $('a[data-share="fb"]');
+    const x    = $('a[data-share="x"]');
+    const line = $('a[data-share="line"]');
+    const mail = $('a[data-share="mail"]');
 
-</main>
+    if (fb)   fb.href   = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    if (x)    x.href    = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    if (line) line.href = `https://social-plugins.line.me/lineit/share?url=${url}`;
+    if (mail) mail.href = `mailto:?subject=${title}&body=${url}`;
+  })();
+</script>
 
+</body>
+</html>
 <!-- ページ下部パーツ -->
 <div id="fixed-buttons">
-  <div class="bubble">現場の声をお聞かせください</div>
+
+  <!-- 吹き出し -->
+  <div class="bubble">
+    現場の声をお聞かせください
+  </div>
+
+  <!-- 封筒ボタン（Googleフォームにリンク） -->
   <a href="https://forms.gle/Si4rsNDTvfctbZ8e7" target="_blank" class="mail-fab" title="ご意見フォーム">
+    <!-- 封筒アイコン -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 
+               2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
+               4l-8 5-8-5V6l8 5 8-5v2z"/>
     </svg>
   </a>
+
+  <!-- 上に戻るボタン -->
   <a href="#top" class="back-to-top">▲</a>
+
 </div>
+
+<style>
+/* 固定ボタン全体（右端に寄せる） */
+#fixed-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* 吹き出しも右端に */
+  gap: 12px;
+  z-index: 10000;
+}
+
+/* 吹き出しデザイン */
+.bubble {
+  background: #fff;
+  color: #333;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  position: relative;
+  max-width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin: 0;
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: -10px;
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* 封筒ボタン */
+.mail-fab {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.mail-fab:hover {
+  background-color: #ef4444;
+}
+
+/* 上に戻るボタン */
+.back-to-top {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #1d4ed8;
+  text-align: center;
+  line-height: 48px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.back-to-top:hover {
+  background-color: #2563eb;
+}
+</style>
+
+
+<!-- /ページ下部パーツ -->
 
 <footer class="accent-bg text-white text-center py-6 mt-12">
   <p>&copy; 2025 この訴えは中小零細企業の存亡に関わる緊急の課題として提起されています</p>
 </footer>
 
-<!-- 共有リンク生成 -->
 <script>
-  (function () {
-    const url=encodeURIComponent(window.location.href);
-    const title=encodeURIComponent(document.title);
-    const $=sel=>document.querySelector(sel);
-    const fb=$('a[data-share="fb"]'), x=$('a[data-share="x"]'),
-          line=$('a[data-share="line"]'), mail=$('a[data-share="mail"]');
-    if(fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    if(x)  x.href  = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-    if(line) line.href = `https://social-plugins.line.me/lineit/share?url=${url}`;
-    if(mail) mail.href = `mailto:?subject=${title}&body=${url}`;
-  })();
-</script>
-
-<!-- FB SDK（1回だけ読み込み） -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0"></script>
-
-<script>
-  // スムーズスクロールの視覚効果
+  // Smooth scroll functionality
   function scrollToSection(sectionId) {
-    document.getElementById(sectionId).scrollIntoView({ behavior:'smooth' });
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    // Update active nav button (optional visual feedback)
     const buttons = document.querySelectorAll('.nav-button');
-    buttons.forEach(b=>{
-      b.classList.remove('active-nav');
-      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(sectionId)) {
-        b.classList.add('active-nav');
+    buttons.forEach(button => {
+      button.classList.remove('active-nav');
+      if (button.getAttribute('onclick').includes(sectionId)) {
+        button.classList.add('active-nav');
       }
     });
   }
+
+  // Set initial active nav button based on initial view
+  window.addEventListener('DOMContentLoaded', () => {
+    const firstNavButton = document.querySelector('.nav-button');
+    if (firstNavButton) {
+      firstNavButton.classList.add('active-nav');
+    }
+  });
 </script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
