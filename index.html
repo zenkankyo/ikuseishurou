@@ -439,52 +439,43 @@
 }
 </style>
 
-  <!-- ここに他のコンテンツ -->
-
 <section class="partners" id="partners">
   <h2 class="section-title">協力会社 / Partners</h2>
-  <div class="logo-grid">
-    <a href="http://marucon.info/" target="_blank" rel="noopener">
-      <img src="./images/marucon-logo.png" alt="マルコン 協力会社ロゴ" loading="lazy" width="300" height="100">
+
+  <!-- Tailwindで横並びグリッド化（スマホ2列／MD以上3列） -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
+    <a href="http://marucon.info/" target="_blank" rel="noopener" class="block">
+      <img src="./images/marucon-logo.png" alt="マルコン 協力会社ロゴ"
+           class="max-h-24 md:max-h-28 w-auto h-auto object-contain" loading="lazy">
     </a>
-    <a href="https://www.facebook.com/marutora.info" target="_blank" rel="noopener">
-      <img src="./images/marutora-logo.png" alt="マルトラ 協力会社ロゴ" loading="lazy" width="300" height="100">
+
+    <a href="https://www.facebook.com/marutora.info" target="_blank" rel="noopener" class="block">
+      <img src="./images/marutora-logo.png" alt="マルトラ 協力会社ロゴ"
+           class="max-h-24 md:max-h-28 w-auto h-auto object-contain" loading="lazy">
     </a>
-    <a href="https://tricastleinternational.com/" target="_blank" rel="noopener">
-      <img src="./images/tricastle-logo.png" alt="トライキャッスル 協力会社ロゴ" loading="lazy" width="300" height="100">
+
+    <a href="https://tricastleinternational.com/" target="_blank" rel="noopener" class="block">
+      <img src="./images/tricastle-logo.png" alt="トライキャッスル 協力会社ロゴ"
+           class="max-h-24 md:max-h-28 w-auto h-auto object-contain" loading="lazy">
     </a>
-    <a href="https://www.kouryucenter.net/works.html" target="_blank" rel="noopener">
-      <img src="./images/koryuchushin-logo.png" alt="交流中心 協力会社ロゴ" loading="lazy" width="300" height="100">
+
+    <a href="https://www.kouryucenter.net/works.html" target="_blank" rel="noopener" class="block">
+      <img src="./images/koryuchushin-logo.png" alt="交流中心 協力会社ロゴ"
+           class="max-h-24 md:max-h-28 w-auto h-auto object-contain" loading="lazy">
     </a>
-    <a href="https://www.aic.kouryucenter.net/about" target="_blank" rel="noopener">
-      <img src="./images/asakusagakuin-logo.png" alt="浅草学院 協力会社ロゴ" loading="lazy" width="300" height="100">
+
+    <a href="https://www.aic.kouryucenter.net/about" target="_blank" rel="noopener" class="block">
+      <img src="./images/asakusagakuin-logo.png" alt="浅草学院 協力会社ロゴ"
+           class="max-h-24 md:max-h-28 w-auto h-auto object-contain" loading="lazy">
     </a>
-    <a href="https://www.takumi-union.com/" target="_blank" rel="noopener">
-      <img src="./images/sainokuni-logo.png" alt="彩の国 協力会社ロゴ" loading="lazy" width="300" height="100">
+
+    <a href="https://www.takumi-union.com/" target="_blank" rel="noopener" class="block">
+      <img src="./images/sainokuni-logo.png" alt="彩の国 協力会社ロゴ"
+           class="max-h-24 md:max-h-28 w-auto h-auto object-contain" loading="lazy">
     </a>
   </div>
 </section>
-<script>
-  (function () {
-    const url   = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(document.title);
 
-    const $ = sel => document.querySelector(sel);
-
-    const fb   = $('a[data-share="fb"]');
-    const x    = $('a[data-share="x"]');
-    const line = $('a[data-share="line"]');
-    const mail = $('a[data-share="mail"]');
-
-    if (fb)   fb.href   = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    if (x)    x.href    = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-    if (line) line.href = `https://social-plugins.line.me/lineit/share?url=${url}`;
-    if (mail) mail.href = `mailto:?subject=${title}&body=${url}`;
-  })();
-</script>
-
-</body>
-</html>
 <!-- ページ下部パーツ -->
 <div id="fixed-buttons">
 
@@ -613,6 +604,7 @@
 
 </body>
 </html>
+
 
 
 
