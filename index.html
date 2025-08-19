@@ -318,16 +318,15 @@
 </script>
  <div>
 <!-- ▼ 関連コンテンツ ▼ -->
-<section class="related" id="related">
+<section id="related" class="mb-12 pt-16 -mt-16">
   <h2 class="section-title">関連コンテンツ</h2>
 
-  <!-- PCは横2列 / スマホは縦1列 -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+    
     <!-- Facebookカード -->
-    <div class="card">
+    <div class="card card--tight">
       <h3>Facebook</h3>
-      <div class="card-content">
+      <div class="card-content fb-wrapper">
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous"
           src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
@@ -335,7 +334,6 @@
         <div class="fb-page"
              data-href="https://www.facebook.com/marucon.info/"
              data-tabs="timeline"
-             data-width="300"
              data-height="400"
              data-small-header="false"
              data-adapt-container-width="true"
@@ -348,49 +346,40 @@
       </div>
     </div>
 
-    <!-- YouTubeカード（見出し1つに統一＋サムネ2枚＋仮タイトル） -->
-    <div class="card">
+    <!-- YouTubeカード（動画１） -->
+    <div class="card card--tight">
       <h3>YouTube</h3>
       <div class="card-content">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-          <!-- 動画１ -->
-          <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener"
-             class="block group">
-            <div class="relative rounded-lg shadow-md overflow-hidden">
-              <img src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
-                   alt="現地での日本語授業風景１" class="w-full h-auto group-hover:opacity-80 transition">
-              <!-- 再生アイコン（任意） -->
-              <svg class="absolute inset-0 m-auto w-12 h-12 opacity-80 pointer-events-none"
-                   viewBox="0 0 24 24" fill="white">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-            <p class="mt-2 text-center text-sm text-slate-700">現地での日本語授業風景１</p>
-          </a>
-
-          <!-- 動画２ -->
-          <a href="https://youtu.be/F_gzzD1Dj_I" target="_blank" rel="noopener"
-             class="block group">
-            <div class="relative rounded-lg shadow-md overflow-hidden">
-              <img src="https://img.youtube.com/vi/F_gzzD1Dj_I/hqdefault.jpg"
-                   alt="現地での日本語授業風景２" class="w-full h-auto group-hover:opacity-80 transition">
-              <svg class="absolute inset-0 m-auto w-12 h-12 opacity-80 pointer-events-none"
-                   viewBox="0 0 24 24" fill="white">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-            <p class="mt-2 text-center text-sm text-slate-700">現地での日本語授業風景２</p>
-          </a>
-
-        </div>
+        <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
+          <!-- 高さ400pxで揃える -->
+          <div class="relative w-full" style="height:400px; overflow:hidden; border-radius:8px;">
+            <img
+              src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
+              alt="現地での日本語授業風景"
+              class="absolute inset-0 w-full h-full object-cover group-hover:opacity-80 transition"
+            />
+            <!-- 再生アイコン -->
+            <svg class="absolute inset-0 m-auto w-14 h-14 opacity-80 pointer-events-none" viewBox="0 0 24 24" fill="white">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <p class="mt-2 text-center text-sm text-slate-700">現地での日本語授業風景</p>
+        </a>
       </div>
     </div>
 
   </div>
 </section>
 
+<style>
+  /* カード内余白をなくして見た目をタイトに */
+  .card.card--tight .card-content { padding: 0; }
+  .card.card--tight h3 { margin: 0 0 8px; padding: 0 8px; }
 
+  /* FBプラグインをカード幅いっぱいに */
+  .fb-wrapper { width: 100%; }
+  .fb-page { width: 100% !important; }
+</style>
 <style>
 .related {
   margin: 40px auto;
@@ -634,6 +623,7 @@
 
 </body>
 </html>
+
 
 
 
