@@ -347,26 +347,36 @@
     </div>
 
     <!-- YouTubeカード（動画１） -->
-    <div class="card card--tight">
-      <h3>YouTube</h3>
-      <div class="card-content">
-        <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
-          <!-- 高さ400pxで揃える -->
-          <div class="relative w-full" style="height:400px; overflow:hidden; border-radius:8px;">
-            <img
-              src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
-              alt="現地での日本語授業風景"
-              class="absolute inset-0 w-full h-full object-cover group-hover:opacity-80 transition"
-            />
-            <!-- 再生アイコン -->
-            <svg class="absolute inset-0 m-auto w-14 h-14 opacity-80 pointer-events-none" viewBox="0 0 24 24" fill="white">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-          <p class="mt-2 text-center text-sm text-slate-700">現地での日本語授業風景</p>
-        </a>
+<div class="card card--tight">
+  <h3>YouTube</h3>
+  <div class="card-content">
+    <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
+
+      <!-- 固定高さのボディ。カード自体の大きさは変えない -->
+      <div class="yt-fixed">
+        <!-- 95%縮小した動画（サムネ） -->
+        <div class="yt-video">
+          <img
+            src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
+            alt="動画１"
+            class="absolute inset-0 w-full h-full object-cover group-hover:opacity-80 transition"
+          />
+          <!-- 再生アイコン -->
+          <svg class="absolute inset-0 m-auto w-14 h-14 opacity-80 pointer-events-none" viewBox="0 0 24 24" fill="white">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+
+        <!-- 残りの“隙間”の中で縦中央にタイトルを配置 -->
+        <div class="yt-title">
+          <p class="text-sm text-slate-700">動画１</p>
+        </div>
       </div>
-    </div>
+
+    </a>
+  </div>
+</div>
+
 
   </div>
 </section>
@@ -623,6 +633,7 @@
 
 </body>
 </html>
+
 
 
 
