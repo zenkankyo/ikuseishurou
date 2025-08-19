@@ -68,7 +68,7 @@
       <nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
         <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">問題提起</a>
         <a href="#voices" class="px-3 py-2 rounded-md hover:bg-slate-100">現場の声</a>
-        <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">お問い合わせ</a>
+        <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">主要要件</a>
         <a href="#partners" class="px-3 py-2 rounded-md hover:bg-slate-100">協力会社</a>
 
         <!-- ご意見フォームボタン -->
@@ -295,18 +295,61 @@
     </svg>
     <span>LINE</span>
   </a>
+  <!-- Messenger -->
+  <a data-share="messenger" target="_blank" rel="noopener"
+     class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-[#0084FF] hover:opacity-90"
+     aria-label="Messengerで送る">
+    <!-- Messengerアイコン（簡易） -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.5 2 2 6.1 2 11.2c0 2.9 1.5 5.4 3.9 7.1V22l3.6-2c.8.2 1.6.3 2.5.3 5.5 0 10-4.1 10-9.2S17.5 2 12 2zm.2 13.4-2.6-2.8-5 2.8 5.5-6 2.6 2.8 5-2.8-5.5 6z"/>
+    </svg>
+    <span>Messenger</span>
+  </a>
 
   <!-- メール -->
   <a data-share="mail" rel="noopener"
      class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-md text-white bg-slate-600 hover:opacity-90"
      aria-label="メールで送る">
-    <!-- 封筒アイコン -->
     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+      <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
     </svg>
     <span>メール</span>
   </a>
 </div>
+
+<script>
+  (function () {
+    const url   = encodeURIComponent(location.href);
+    const title = encodeURIComponent(document.title);
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const root = document.getElementById('share');
+
+    if (!root) return;
+
+    const fb   = $('a[data-share="fb"]', root);
+    const x    = $('a[data-share="x"]', root);
+    const line = $('a[data-share="line"]', root);
+    const msgr = $('a[data-share="messenger"]', root);
+    const mail = $('a[data-share="mail"]', root);
+
+    if (fb)   fb.href   = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    if (x)    x.href    = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    if (line) line.href = `https://social-plugins.line.me/lineit/share?url=${url}`;
+
+    /* Messenger：スマホ優先でアプリへ、PCはダイアログにフォールバック */
+    if (msgr) {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        msgr.href = `fb-messenger://share/?link=${url}`;
+      } else {
+        /* app_id は本来自分のFB App IDに置き換え推奨。未設定でも開ける環境あり */
+        msgr.href = `https://www.facebook.com/dialog/send?link=${url}&app_id=123456789&redirect_uri=${url}`;
+      }
+    }
+
+    if (mail) mail.href = `mailto:?subject=${title}&body=${url}`;
+  })();
+</script>
 <!-- === /共有シリーズ === -->
                 </div> <!-- ← これが白いカード(bg-white p-8 …) の閉じタグ -->
             <div class="text-center my-12 px-4">
@@ -607,6 +650,7 @@
 
 </body>
 </html>
+
 
 
 
