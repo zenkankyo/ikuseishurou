@@ -218,38 +218,30 @@
     </blockquote>
   </div>
 </section>
-
-/* コメントカード吹き出し（三角は下） */
+<!-- ★ここで style をまとめて書く -->
+<style>
 .speech {
   position: relative;
-  /* border-left-width: 4px;    ← 削除 */
-  /* border-left-color: #0ea5e9;*/ 
 }
-
-/* 白い三角（本体） */
 .speech::after {
   content: "";
   position: absolute;
-  bottom: -24px;    /* 下に出す距離を少し広げる */
-  left: 36px;       /* 横位置（調整可） */
-  border-width: 14px;   /* 三角を大きくする */
+  bottom: -24px;
+  left: 36px;
+  border-width: 14px;
   border-style: solid;
   border-color: #ffffff transparent transparent transparent;
 }
-
-/* 枠線用の外側三角（薄いグレーの縁） */
 .speech::before {
   content: "";
   position: absolute;
   bottom: -26px;
   left: 35px;
-  border-width: 15px;  /* 枠線用も同じくらい大きく */
+  border-width: 15px;
   border-style: solid;
   border-color: #e2e8f0 transparent transparent transparent;
 }
-
 </style>
-
         <section id="call-to-action" class="pt-16 -mt-16">
             <div class="bg-white p-8 rounded-lg shadow-xl text-center">
                 <h2 class="section-title">現場の声を届けよう</h2>
@@ -625,6 +617,7 @@
 
 </body>
 </html>
+
 
 
 
