@@ -322,7 +322,7 @@
   <h2 class="section-title">関連コンテンツ</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    
+
     <!-- Facebookカード -->
     <div class="card card--tight">
       <h3>Facebook</h3>
@@ -346,119 +346,14 @@
       </div>
     </div>
 
-    <!-- YouTubeカード（動画１） -->
-<div class="card card--tight">
-  <h3>YouTube</h3>
-  <div class="card-content">
-    <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
+    <!-- YouTubeカード（安定版・動画95%・タイトル中央） -->
+    <div class="card card--tight card--youtube">
+      <h3>YouTube</h3>
+      <div class="card-content">
+        <div class="yt-grid">
+          <!-- サムネ -->
+          <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel_
 
-      <!-- 固定高さのボディ。カード自体の大きさは変えない -->
-      <div class="yt-fixed">
-        <!-- 95%縮小した動画（サムネ） -->
-        <div class="yt-video">
-          <img
-            src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
-            alt="動画１"
-            class="absolute inset-0 w-full h-full object-cover group-hover:opacity-80 transition"
-          />
-          <!-- 再生アイコン -->
-          <svg class="absolute inset-0 m-auto w-14 h-14 opacity-80 pointer-events-none" viewBox="0 0 24 24" fill="white">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
-
-        <!-- 残りの“隙間”の中で縦中央にタイトルを配置 -->
-        <div class="yt-title">
-          <p class="text-sm text-slate-700">動画１</p>
-        </div>
-      </div>
-
-    </a>
-  </div>
-</div>
-
-
-  </div>
-</section>
-
-<style>
-  /* カード内余白をなくして見た目をタイトに */
-  .card.card--tight .card-content { padding: 0; }
-  .card.card--tight h3 { margin: 0 0 8px; padding: 0 8px; }
-
-  /* FBプラグインをカード幅いっぱいに */
-  .fb-wrapper { width: 100%; }
-  .fb-page { width: 100% !important; }
-</style>
-<style>
-.related {
-  margin: 40px auto;
-  max-width: 1100px;
-}
-.related h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.card-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.card {
-  flex: 1 1 300px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-.card h3 {
-  text-align: center;
-  background: #f3f4f6;
-  margin: 0;
-  padding: 10px;
-  font-size: 16px;
-}
-.card-content {
-  padding: 10px;
-}
-</style>
-    </main>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>育成就労HP</title>
-
-  <style>
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      align-items: center;
-      justify-items: center;
-    }
-
-    .logo-grid img {
-      max-height: 100px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .partners {
-      padding: 40px 20px;
-      background: #f7f7f7; /* 薄い背景色で区切り感 */
-      text-align: center;
-    }
-
-    .partners h2 {
-      font-size: 1.8rem;
-      margin-bottom: 28px;
-    }
-  </style>
-</head>
-<body>
   <!-- ここに他のコンテンツ -->
 
 <section class="partners" id="partners">
@@ -633,6 +528,7 @@
 
 </body>
 </html>
+
 
 
 
