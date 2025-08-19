@@ -189,33 +189,67 @@
                 </div>
             </div>
         </section>
+<section id="voices" class="mb-12 pt-16 -mt-16">
+  <h2 class="section-title">現場の声</h2>
 
-        <section id="voices" class="mb-12 pt-16 -mt-16">
-           <h2 class="section-title">現場の声</h2>
-<div class="space-y-6">
-    <blockquote class="p-6 bg-white rounded-lg shadow-md border-l-4 border-sky-500">
-        <p class="text-slate-700 italic mb-2">
-            入国前に実習生に日本語資格をとらせるって本気ですか？　どうやって受験勉強させるのですか、何十万人もの受験者の試験はどうやって実施するのですか、費用は誰がもつのですか。そもそも外国語を勉強する余裕（時間とお金と頭の良さ）のある人は、日本へ来て汚れ仕事や力仕事をやろうと思いませんよ。実態をまるで分かっていない。むしろ、勤勉で献身的な労働者を失うことになります。
-        </p>
-        <footer class="text-sm text-slate-500">- 鉄筋業者</footer>
+  <div class="space-y-8">
+    <!-- 1枚目 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        入国前に実習生に日本語資格をとらせるって本気ですか？　どうやって受験勉強させるのですか、何十万人もの受験者の試験はどうやって実施するのですか、費用は誰がもつのですか。そもそも外国語を勉強する余裕（時間とお金と頭の良さ）のある人は、日本へ来て汚れ仕事や力仕事をやろうと思いませんよ。実態をまるで分かっていない。むしろ、勤勉で献身的な労働者を失うことになります。
+      </p>
+      <footer class="text-sm text-slate-500">- 鉄筋業者</footer>
     </blockquote>
 
-    <blockquote class="p-6 bg-white rounded-lg shadow-md border-l-4 border-sky-500">
-        <p class="text-slate-700 italic mb-2">
-            規制強化で実習生は確実に減るでしょうね。実習生が減って一番困るのは日本の労働者です。実習生がやっている仕事を自分たちでやらなければならないのですから。我々の生業は誰もすすんでやりたがらない仕事です。日本人の若者は鼻も引っかけません。ますます担い手がいなくなります。日本語教育だとか新たな義務だとか書類だとか、我々を廃業に追い込みたいのですか。
-        </p>
-        <footer class="text-sm text-slate-500">- 土木業者</footer>
+    <!-- 2枚目 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        規制強化で実習生は確実に減るでしょうね。実習生が減って一番困るのは日本の労働者です。実習生がやっている仕事を自分たちでやらなければならないのですから。我々の生業は誰もすすんでやりたがらない仕事です。日本人の若者は鼻も引っかけません。ますます担い手がいなくなります。日本語教育だとか新たな義務だとか書類だとか、我々を廃業に追い込みたいのですか。
+      </p>
+      <footer class="text-sm text-slate-500">- 土木業者</footer>
     </blockquote>
 
-    <blockquote class="p-6 bg-white rounded-lg shadow-md border-l-4 border-sky-500">
-        <p class="text-slate-700 italic mb-2">
-            20年以上監理団体と一緒にフィリピン人を育ててきた者です。一人の失踪者もなく、大きな事故もなく、会社も発展しました。先日監理団体の人から『2年後に育成就労が始まったら人数制限をされるので、御社とはお付き合いできなくなるかもしれない』と言われました。どうしてよいか分かりません。何の問題もなく、会社・実習生・監理団体で共生しているのに、それを分断する理由を教えてください。
-        </p>
-        <footer class="text-sm text-slate-500">- 内装業者</footer>
+    <!-- 3枚目 -->
+    <blockquote class="speech p-6 bg-white rounded-xl shadow-md border border-slate-200">
+      <p class="text-slate-700 italic mb-2">
+        20年以上監理団体と一緒にフィリピン人を育ててきた者です。一人の失踪者もなく、大きな事故もなく、会社も発展しました。先日監理団体の人から『2年後に育成就労が始まったら人数制限をされるので、御社とはお付き合いできなくなるかもしれない』と言われました。どうしてよいか分かりません。何の問題もなく、会社・実習生・監理団体で共生しているのに、それを分断する理由を教えてください。
+      </p>
+      <footer class="text-sm text-slate-500">- 内装業者</footer>
     </blockquote>
-</div>
-        </section>      
-        </div>
+  </div>
+</section>
+
+<style>
+/* コメントカード吹き出し（三角は下） */
+.speech {
+  position: relative;
+  border-left-width: 4px;          /* 左にアクセントライン */
+  border-left-color: #0ea5e9;      /* sky-500 */
+}
+
+/* 白い三角（本体） */
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;                   /* 三角を下に出す */
+  left: 36px;                      /* 三角の横位置（お好みで調整） */
+  border-width: 8px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent; /* 上が白 */
+}
+
+/* 枠線用の外側三角（薄いグレーの縁） */
+.speech::before {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 35px;
+  border-width: 9px;
+  border-style: solid;
+  border-color: #e2e8f0 transparent transparent transparent; /* slate-200 */
+}
+</style>
+
         <section id="call-to-action" class="pt-16 -mt-16">
             <div class="bg-white p-8 rounded-lg shadow-xl text-center">
                 <h2 class="section-title">現場の声を届けよう</h2>
@@ -591,6 +625,7 @@
 
 </body>
 </html>
+
 
 
 
