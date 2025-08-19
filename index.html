@@ -346,31 +346,35 @@
       </div>
     </div>
 
-    <!-- YouTube1 -->
+   <section class="related">
+  <h2 class="section-title">関連コンテンツ</h2>
+
+  <div class="card-container">
+
+    <!-- Facebookカード（そのまま残す） -->
+    <div class="card"> ... </div>
+
+    <!-- YouTubeカード（2つ → 1つにまとめて差し替える） -->
     <div class="card">
       <h3>YouTube</h3>
       <div class="card-content">
-        <iframe width="100%" height="200" 
-          src="https://www.youtube.com/embed/P9-KjVaKzoU" 
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+        <!-- 👇ここにサムネイルコードを入れる -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
+            <img src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
+                 alt="YouTube動画1"
+                 class="rounded-lg shadow-md w-full object-cover group-hover:opacity-80 transition">
+          </a>
+
+          <a href="https://youtu.be/F_gzzD1Dj_I" target="_blank" rel="noopener" class="block group">
+            <img src="https://img.youtube.com/vi/F_gzzD1Dj_I/hqdefault.jpg"
+                 alt="YouTube動画2"
+                 class="rounded-lg shadow-md w-full object-cover group-hover:opacity-80 transition">
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- YouTube2 -->
-    <div class="card">
-      <h3>YouTube</h3>
-      <div class="card-content">
-        <iframe width="100%" height="200" 
-          src="https://www.youtube.com/embed/F_gzzD1Dj_I" 
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -617,6 +621,7 @@
 
 </body>
 </html>
+
 
 
 
