@@ -219,35 +219,35 @@
   </div>
 </section>
 
-<style>
 /* コメントカード吹き出し（三角は下） */
 .speech {
   position: relative;
-  border-left-width: 4px;          /* 左にアクセントライン */
-  border-left-color: #0ea5e9;      /* sky-500 */
+  /* border-left-width: 4px;    ← 削除 */
+  /* border-left-color: #0ea5e9;*/ 
 }
 
 /* 白い三角（本体） */
 .speech::after {
   content: "";
   position: absolute;
-  bottom: -14px;                   /* 三角を下に出す */
-  left: 36px;                      /* 三角の横位置（お好みで調整） */
-  border-width: 8px;
+  bottom: -24px;    /* 下に出す距離を少し広げる */
+  left: 36px;       /* 横位置（調整可） */
+  border-width: 14px;   /* 三角を大きくする */
   border-style: solid;
-  border-color: #ffffff transparent transparent transparent; /* 上が白 */
+  border-color: #ffffff transparent transparent transparent;
 }
 
 /* 枠線用の外側三角（薄いグレーの縁） */
 .speech::before {
   content: "";
   position: absolute;
-  bottom: -16px;
+  bottom: -26px;
   left: 35px;
-  border-width: 9px;
+  border-width: 15px;  /* 枠線用も同じくらい大きく */
   border-style: solid;
-  border-color: #e2e8f0 transparent transparent transparent; /* slate-200 */
+  border-color: #e2e8f0 transparent transparent transparent;
 }
+
 </style>
 
         <section id="call-to-action" class="pt-16 -mt-16">
@@ -625,6 +625,7 @@
 
 </body>
 </html>
+
 
 
 
