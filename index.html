@@ -318,11 +318,10 @@
 </script>
  <div>
 <!-- ▼ 関連コンテンツ ▼ -->
-<section id="related" class="mb-12 pt-16 -mt-16">
-  <h2 class="section-title">関連コンテンツ</h2>
+<section id="related" class="related">
+  <h2>関連コンテンツ</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+  <div class="card-container">
     <!-- Facebookカード -->
     <div class="card card--tight">
       <h3>Facebook</h3>
@@ -346,13 +345,99 @@
       </div>
     </div>
 
-    <!-- YouTubeカード（安定版・動画95%・タイトル中央） -->
-    <div class="card card--tight card--youtube">
+    <!-- YouTubeカード -->
+    <div class="card card--tight">
       <h3>YouTube</h3>
       <div class="card-content">
-        <div class="yt-grid">
-          <!-- サムネ -->
-          <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel_
+        <a href="https://youtu.be/P9-KjVaKzoU" target="_blank" rel="noopener" class="block group">
+          <div class="yt-fixed">
+            <!-- 95%縮小した動画（サムネ） -->
+            <div class="yt-video">
+              <img
+                src="https://img.youtube.com/vi/P9-KjVaKzoU/hqdefault.jpg"
+                alt="動画１"
+                class="w-[95%] h-auto mx-auto object-cover group-hover:opacity-80 transition"
+              />
+              <!-- 再生アイコン -->
+              <svg class="absolute inset-0 m-auto w-14 h-14 opacity-80 pointer-events-none" viewBox="0 0 24 24" fill="white">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <!-- タイトルを中間寄せ -->
+            <div class="yt-title flex items-center justify-center">
+              <p class="text-sm text-slate-700">動画１</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* 全体のレイアウト */
+.related {
+  margin: 40px auto;
+  max-width: 1100px;
+}
+.related h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* カードレイアウト */
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  flex: 1 1 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card h3 {
+  text-align: center;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 10px;
+  font-size: 16px;
+}
+.card-content {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Facebookプラグイン */
+.fb-wrapper { width: 100%; }
+.fb-page { width: 100% !important; }
+
+/* YouTubeカスタム */
+.yt-fixed {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.yt-video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.yt-title {
+  margin-top: 8px;
+  text-align: center;
+}
+</style>
 
   <!-- ここに他のコンテンツ -->
 
@@ -528,6 +613,7 @@
 
 </body>
 </html>
+
 
 
 
