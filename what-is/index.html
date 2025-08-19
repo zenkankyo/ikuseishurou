@@ -1,87 +1,91 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>育成就労制度とは？技能実習との違い・背景と要件をわかりやすく解説</title>
-  <meta name="description" content="新しい『育成就労制度』の目的・背景・要件（日本語要件、転籍、期間など）をやさしく解説。技能実習制度との違いも比較表で整理。現場の視点と参考資料へのリンク付き。" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>育成就労制度とは？技能実習との違い・背景と要件をわかりやすく解説</title>
+   <meta name="description" content="新しい『育成就労制度』の目的・背景・要件（日本語要件、転籍、期間など）をやさしく解説。技能実習制度との違いも比較表で整理。現場の視点と参考資料へのリンク付き。" />
   <link rel="canonical" href="https://zenkankyo.github.io/ikuseishurou/what-is/" />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="育成就労制度とは？技能実習との違い・背景と要件をわかりやすく解説" />
-  <meta property="og:description" content="新しい『育成就労制度』の目的・背景・要件（日本語要件、転籍、期間など）をやさしく解説。技能実習制度との違いも比較表で整理。現場の視点と参考資料へのリンク付き。" />
-  <meta property="og:url" content="https://zenkankyo.github.io/ikuseishurou/what-is/" />
-  <!-- TODO: 画像を配置したら差し替え（推奨 1200x630） -->
-  <meta property="og:image" content="https://zenkankyo.github.io/ikuseishurou/og-what-is.jpg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style> body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans JP",sans-serif;} </style>
-
-  <!-- 構造化データ（Organization / Article / BreadcrumbList） -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "全国監理団体協会",
-    "url": "https://zenkankyo.github.io/ikuseishurou/",
-    "logo": "https://zenkankyo.github.io/ikuseishurou/images/logo.png",
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "contactType": "General",
-      "email": "kyx04112@nifty.com"
-    }]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem","position": 1, "name": "ホーム", "item": "https://zenkankyo.github.io/ikuseishurou/"},
-      {"@type": "ListItem","position": 2, "name": "育成就労制度とは？", "item": "https://zenkankyo.github.io/ikuseishurou/what-is/"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "育成就労制度とは？技能実習との違い・背景と要件をわかりやすく解説",
-    "description": "育成就労制度の目的・背景・要件・期間・転籍、日本語要件、技能実習との比較を解説。参考資料の一次情報リンクつき。",
-    "datePublished": "2025-08-18",
-    "dateModified": "2025-08-18",
-    "author": {"@type": "Organization", "name": "全国監理団体協会"},
-    "publisher": {"@type": "Organization", "name": "全国監理団体協会", "logo": {"@type": "ImageObject", "url": "https://zenkankyo.github.io/ikuseishurou/images/logo.png"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://zenkankyo.github.io/ikuseishurou/what-is/"}
-  }
-  </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Visualization & Content Choices:
+        - Overview: Text summary, key stats (e.g., 200+ SMEs). Goal: Establish context/urgency. Method: HTML/Tailwind.
+        - Problem 1 (Language): Text + Image and Text. Goal: Show increased difficulty. Interaction: None. Justification: Visual impact for abstract hurdle.
+        - Problem 2 (Company Burden): Text + Prominent display of cost increase. Goal: Quantify financial impact. Method: HTML/Tailwind styled text. Interaction: None. Justification: Directness.
+        - Problem 3 (Supervising Org.): Text + HTML/CSS diagram (Before/After). Goal: Illustrate structural negative change. Method: HTML/Tailwind. Interaction: None. Justification: Clear comparison.
+        - Voices: Direct quotes. Goal: Humanize impact. Method: HTML/Tailwind blockquotes.
+        - Call to Action: Strong text, petitioner info. Goal: Reinforce demand. Method: HTML/Tailwind.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Chart.js removed as chart was replaced. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        /* Removed .chart-container styles as it's no longer used for the JLPT image section */
+        .problem-card {
+            border: 1px solid #e2e8f0; /* slate-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1.5rem; /* p-6 */
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        .section-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #b91c1c; /* text-red-700 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            text-align: center;
+        }
+        .accent-bg { background-color: #0284c7; /* bg-sky-600 */ }
+        .accent-text { color: #0284c7; /* text-sky-600 */ }
+        .nav-button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: #0369a1; /* sky-700 */
+        }
+        .nav-button.active-nav {
+            background-color: #0ea5e9; /* sky-500 */
+            font-weight: 600;
+        }
+    </style>
+<meta name="google-site-verification" content="TmZslLybA1iqguu3bHIISYwuS9fliPRTT6xiY7IHfxw" />
 </head>
 <body class="bg-slate-100 text-slate-800">
-  <a id="top"></a>
-  <!-- Header -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-3">
-        <a href="/ikuseishurou/" class="flex items-center gap-3" aria-label="全国監理団体協会 トップへ">
-          <img src="https://via.placeholder.com/120x40?text=Zenkankyo+Logo" alt="全国監理団体協会ロゴ" class="h-10 w-auto" loading="lazy" />
-          <span class="text-slate-800 font-bold text-lg hidden sm:inline">全国監理団体協会</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-2 text-slate-700">
-          <a href="/ikuseishurou/" class="px-3 py-2 rounded-md hover:bg-slate-100">総合トップ</a>
-          <a href="#outline" class="px-3 py-2 rounded-md hover:bg-slate-100">概要</a>
-          <a href="#compare" class="px-3 py-2 rounded-md hover:bg-slate-100">旧制度との違い</a>
-          <a href="#requirements" class="px-3 py-2 rounded-md hover:bg-slate-100">主要要件</a>
-          <a href="#refs" class="px-3 py-2 rounded-md hover:bg-slate-100">参考資料</a>
-          <a href="#share" class="ml-2 px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 shadow">共有</a>
-        </nav>
-      </div>
-    </div>
-  </header>
+<a id="top"></a>
+<header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between py-3">
+      
+      <!-- 左：ロゴ -->
+      <a href="/ikuseishurou/" class="flex items-center gap-3 shrink-0">
+      <img
+  src="./images/NASO-logo.png"
+  alt="全国監理団体協会ロゴ"
+  class="h-16 md:h-24 w-auto"
+/>
+      </a>
 
+
+      <!-- 右：ナビ -->
+      <nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
+        <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">問題提起</a>
+        <a href="#voices" class="px-3 py-2 rounded-md hover:bg-slate-100">現場の声</a>
+        <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">お問い合わせ</a>
+        <a href="#partners" class="px-3 py-2 rounded-md hover:bg-slate-100">参考資料</a>
+
+        <!-- ご意見フォームボタン -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8AD-V9_haAllC80Jfb7ZrWETJdcNbhxNEFGXVv8tV1brozA/viewform?usp=header"
+           target="_blank" rel="noopener"
+           class="ml-2 px-4 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 shadow">
+           ご意見フォーム
+        </a>
+      </nav>
+
+    </div>
+  </div>
+</header>
   <!-- Hero -->
   <section class="bg-blue-600 text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
