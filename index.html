@@ -20,7 +20,6 @@
       transition: transform .15s;
     }
   </style>
-</head>
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         /* Removed .chart-container styles as it's no longer used for the JLPT image section */
@@ -75,8 +74,8 @@
     🌐 LANGUAGE ▾
   </summary>
   <div class="mt-2 rounded-md border border-slate-200 bg-white shadow py-1 w-40">
-    <a href="/ikuseishurou/en/" class="block px-3 py-2 text-sm hover:bg-slate-50" hreflang="en">English</a>
-    <a href="/ikuseishurou/" class="block px-3 py-2 text-sm hover:bg-slate-50" hreflang="ja">日本語</a>
+   <a href="index.html" hreflang="ja">日本語</a>
+<a href="index-en.html" hreflang="en">English</a>
   </div>
 </details>
 
@@ -98,14 +97,15 @@
   </summary>
 
   <!-- ドロップメニュー -->
-  <div class="absolute right-0 mt-2 w-44 rounded-md border border-slate-200 bg-white shadow-lg py-1 z-[60]">
-    <!-- ✅ 日本語ページ（今のページ）用：英語へ -->
-    <a href="/ikuseishurou/index-en.html"
-       class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="en">English</a>
-    <!-- ✅ 日本語ページ（今のページ）用：日本語トップへ（好みで残す/消す） -->
-    <a href="/ikuseishurou/"
-       class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="ja">日本語</a>
-  </div>
+<div class="absolute right-0 mt-2 w-44 rounded-md border border-slate-200 bg-white shadow-lg py-1 z-[60]">
+  <!-- 日本語ページ（今のページ）用：英語へ -->
+  <a href="index-en.html"
+     class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="en">English</a>
+  <!-- 日本語ページ（今のページ）用：日本語トップへ -->
+  <a href="index.html"
+     class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="ja">日本語</a>
+</div>
+
 </details>
 <!-- ▲ 言語選択ここまで ▲ -->
 
@@ -690,6 +690,7 @@
 
 </body>
 </html>
+
 
 
 
