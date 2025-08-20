@@ -1,59 +1,44 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>育成就労制度への問題提起</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Visualization & Content Choices:
-        - Overview: Text summary, key stats (e.g., 200+ SMEs). Goal: Establish context/urgency. Method: HTML/Tailwind.
-        - Problem 1 (Language): Text + Image and Text. Goal: Show increased difficulty. Interaction: None. Justification: Visual impact for abstract hurdle.
-        - Problem 2 (Company Burden): Text + Prominent display of cost increase. Goal: Quantify financial impact. Method: HTML/Tailwind styled text. Interaction: None. Justification: Directness.
-        - Problem 3 (Supervising Org.): Text + HTML/CSS diagram (Before/After). Goal: Illustrate structural negative change. Method: HTML/Tailwind. Interaction: None. Justification: Clear comparison.
-        - Voices: Direct quotes. Goal: Humanize impact. Method: HTML/Tailwind blockquotes.
-        - Call to Action: Strong text, petitioner info. Goal: Reinforce demand. Method: HTML/Tailwind.
-        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Chart.js removed as chart was replaced. -->
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        details[open] > summary .ml-1 {
-      transform: rotate(180deg);
-      transition: transform .15s;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>育成就労制度への問題提起</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    details[open] > summary .ml-1 { transform: rotate(180deg); transition: transform .15s; }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .problem-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      background-color: white;
+      box-shadow:
+        0 4px 6px -1px rgba(0,0,0,.1),
+        0 2px 4px -1px rgba(0,0,0,.06);
     }
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #b91c1c;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .accent-bg { background-color: #0284c7; }
+    .accent-text { color: #0284c7; }
+    .nav-button { padding: .5rem 1rem; border-radius: .375rem; transition: background-color .3s ease; }
+    .nav-button:hover { background-color: #0369a1; }
+    .nav-button.active-nav { background-color: #0ea5e9; font-weight: 600; }
   </style>
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        /* Removed .chart-container styles as it's no longer used for the JLPT image section */
-        .problem-card {
-            border: 1px solid #e2e8f0; /* slate-200 */
-            border-radius: 0.5rem; /* rounded-lg */
-            padding: 1.5rem; /* p-6 */
-            background-color: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-        }
-        .section-title {
-            font-size: 1.875rem; /* text-3xl */
-            font-weight: 700; /* font-bold */
-            color: #b91c1c; /* text-red-700 */
-            margin-bottom: 1.5rem; /* mb-6 */
-            text-align: center;
-        }
-        .accent-bg { background-color: #0284c7; /* bg-sky-600 */ }
-        .accent-text { color: #0284c7; /* text-sky-600 */ }
-        .nav-button {
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            transition: background-color 0.3s ease;
-        }
-        .nav-button:hover {
-            background-color: #0369a1; /* sky-700 */
-        }
-        .nav-button.active-nav {
-            background-color: #0ea5e9; /* sky-500 */
-            font-weight: 600;
-        }
-    </style>
-<meta name="google-site-verification" content="TmZslLybA1iqguu3bHIISYwuS9fliPRTT6xiY7IHfxw" />
+
+  <meta name="google-site-verification" content="TmZslLybA1iqguu3bHIISYwuS9fliPRTT6xiY7IHfxw" />
 </head>
+
 <body class="bg-slate-100 text-slate-800">
 <a id="top"></a>
 <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -81,46 +66,39 @@
 
 
       <!-- 右：ナビ -->
-      <nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
-          <!-- ▼ 言語選択（プルダウン風 / HTML-only） ▼ -->
-<details class="relative group">
-  <summary class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-slate-100 text-slate-700 text-sm font-medium cursor-pointer list-none">
-    <!-- 地球アイコン -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm7.93 9h-3.07a15.71 15.71 0 0 0-1.18-4.33A8.03 8.03 0 0 1 19.93 11zM12 4c.98 0 2.54 1.82 3.28 5H8.72C9.46 5.82 11.02 4 12 4zM4.07 13h3.07c.18 1.54.62 2.99 1.18 4.33A8.03 8.03 0 0 1 4.07 13zM7.14 11H4.07a8.03 8.03 0 0 1 4.25-4.33A15.71 15.71 0 0 0 7.14 11zM12 20c-.98 0-2.54-1.82-3.28-5h6.56C14.54 18.18 12.98 20 12 20zm2.58-2.67c.56-1.34 1-2.79 1.18-4.33h3.07a8.03 8.03 0 0 1-4.25 4.33z"/>
-    </svg>
-    <span class="tracking-wide">LANGUAGE</span>
-    <span class="text-slate-400">|</span>
-    <span class="tracking-wide">日本語</span>
-    <!-- ▼ を右に薄く -->
-    <span class="ml-1 text-slate-400">▾</span>
-  </summary>
+<nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
+  <!-- ▼ 言語選択（プルダウン風 / HTML-only） ▼ -->
+  <details class="relative group">
+    <summary class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-slate-100 text-slate-700 text-sm font-medium cursor-pointer list-none">
+      <!-- 地球アイコン -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm7.93 9h-3.07a15.71 15.71 0 0 0-1.18-4.33A8.03 8.03 0 0 1 19.93 11zM12 4c.98 0 2.54 1.82 3.28 5H8.72C9.46 5.82 11.02 4 12 4zM4.07 13h3.07c.18 1.54.62 2.99 1.18 4.33A8.03 8.03 0 0 1 4.07 13zM7.14 11H4.07a8.03 8.03 0 0 1 4.25-4.33A15.71 15.71 0 0 0 7.14 11zM12 20c-.98 0-2.54-1.82-3.28-5h6.56C14.54 18.18 12.98 20 12 20zm2.58-2.67c.56-1.34 1-2.79 1.18-4.33h3.07a8.03 8.03 0 0 1-4.25 4.33z"/>
+      </svg>
+      <span class="tracking-wide">LANGUAGE</span>
+      <span class="text-slate-400">|</span>
+      <span class="tracking-wide">日本語</span>
+      <span class="ml-1 text-slate-400">▾</span>
+    </summary>
 
-  <!-- ドロップメニュー -->
-<div class="absolute right-0 mt-2 w-44 rounded-md border border-slate-200 bg-white shadow-lg py-1 z-[60]">
-  <!-- 日本語ページ（今のページ）用：英語へ -->
-  <a href="index-en.html"
-     class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="en">English</a>
-  <!-- 日本語ページ（今のページ）用：日本語トップへ -->
-  <a href="index.html"
-     class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="ja">日本語</a>
-</div>
+    <!-- ドロップメニュー -->
+    <div class="absolute right-0 mt-2 w-44 rounded-md border border-slate-200 bg-white shadow-lg py-1 z-[60]">
+      <a href="index-en.html" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="en">English</a>
+      <a href="index.html"    class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="ja">日本語</a>
+    </div>
+  </details>
+  <!-- ▲ 言語選択ここまで ▲ -->
 
-</details>
-<!-- ▲ 言語選択ここまで ▲ -->
+  <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">問題提起</a>
+  <a href="#voices" class="px-3 py-2 rounded-md hover:bg-slate-100">現場の声</a>
+  <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">主要要件</a>
+  <a href="#partners" class="px-3 py-2 rounded-md hover:bg-slate-100">協力会社</a>
 
-        <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">問題提起</a>
-        <a href="#voices" class="px-3 py-2 rounded-md hover:bg-slate-100">現場の声</a>
-        <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">主要要件</a>
-        <a href="#partners" class="px-3 py-2 rounded-md hover:bg-slate-100">協力会社</a>
-
-        <!-- ご意見フォームボタン -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8AD-V9_haAllC80Jfb7ZrWETJdcNbhxNEFGXVv8tV1brozA/viewform?usp=header"
-           target="_blank" rel="noopener"
-           class="ml-2 px-4 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 shadow">
-           ご意見フォーム
-        </a>
-      </nav>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8AD-V9_haAllC80Jfb7ZrWETJdcNbhxNEFGXVv8tV1brozA/viewform?usp=header"
+     target="_blank" rel="noopener"
+     class="ml-2 px-4 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 shadow">
+    ご意見フォーム
+  </a>
+</nav>
 
     </div>
   </div>
@@ -179,7 +157,7 @@
                     <div class="my-6 flex flex-col md:flex-row items-center gap-6">
                         <div class="w-full md:w-2/5 flex-shrink-0">
                             <div class="h-51 overflow-hidden rounded-lg shadow-md"> 
-                                <img src="https://i.imgur.com/8Ld7pbf.gif" alt=""JLPT受験者の属性を示す円グラフ。小学生2.3%、中高生11.7%、大学・大学院生42.2%、語学学校などの学生6.0%、就業者（会社員・公務員・教員・自営業など）27.6%、その他9.0%、無回答1.1%。"" class="w-full h-full object-cover object-top">
+                                <img src="https://i.imgur.com/8Ld7pbf.gif" alt=""JLPT受験者の属性を示す円グラフ。小学生2.3%、中高生11.7%、大学・大学院生42.2%、語学学校などの学生6.0%、就業者（会社員・公務員・教員・自営業など）27.6%、その他9.0%、無回答1.1%。" class="w-full h-full object-cover object-top">
                          　　   <p class="text-center mb-8 text-slate-700">JLPT受験者の属性別割合</p>
                             </div>
                         </div>
@@ -690,6 +668,7 @@
 
 </body>
 </html>
+
 
 
 
