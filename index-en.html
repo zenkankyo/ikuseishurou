@@ -38,31 +38,13 @@
             font-weight: 600;
         }
     </style>
-<meta name="google-site-verification" content="TmZslLybA1iqguu3bHIISYwuS9fliPRTT6xiY7IHfxw" />
-</head>
-<body class="bg-slate-100 text-slate-800">
-<a id="top"></a>
-<header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between py-3">
-      
-      <!-- Left: Logo -->
-      <a href="/ikuseishurou/" class="flex items-center gap-3 shrink-0">
-        <img
-          src="./images/NASO-logo.png"
-          alt="NASO Logo"
-          class="h-16 md:h-24 w-auto"
-        />
-      </a>
+<!-- Right: Navigation -->
+<nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
 
-      <!-- Right: Navigation -->
-      <nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
-          <nav class="hidden md:flex items-center gap-4 text-slate-700 text-lg font-semibold">
-  
-  <!-- 🌐 Language Switch -->
+  <!-- 🌐 Language Switch (EN site) -->
   <details class="relative group">
     <summary class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-slate-100 text-slate-700 text-sm font-medium cursor-pointer list-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm7.93 9h-3.07a15.71 15.71 0 0 0-1.18-4.33A8.03 8.03 0 0 1 19.93 11zM12 4c.98 0 2.54 1.82 3.28 5H8.72C9.46 5.82 11.02 4 12 4zM4.07 13h3.07c.18 1.54.62 2.99 1.18 4.33A8.03 8.03 0 0 1 4.07 13zM7.14 11H4.07a8.03 8.03 0 0 1 4.25-4.33A15.71 15.71 0 0 0 7.14 11zM12 20c-.98 0-2.54-1.82-3.28-5h6.56C14.54 18.18 12.98 20 12 20zm2.58-2.67c.56-1.34 1-2.79 1.18-4.33h3.07a8.03 8.03 0 0 1-4.25 4.33z"/>
       </svg>
       <span class="tracking-wide">LANGUAGE</span>
@@ -71,13 +53,32 @@
       <span class="ml-1 text-slate-400">▾</span>
     </summary>
 
-    <!-- ドロップダウンの中身 -->
+    <!-- Dropdown Menu -->
     <div class="absolute right-0 mt-2 w-44 rounded-md border border-slate-200 bg-white shadow-lg py-1 z-[60]">
-     <a href="index.html"
-   class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="ja">日本語</a>
-<a href="index-en.html"
-   class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="en">English</a>
+      <!-- 日本語へ -->
+      <a href="index.html"
+         class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="ja">日本語</a>
+      <!-- English（現在地） -->
+      <a href="index-en.html"
+         class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" hreflang="en">English</a>
     </div>
+  </details>
+
+  <!-- ここに PC用の他メニュー（Overview / Voices / …）が並ぶ -->
+  <!-- 例：
+  <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-100">Overview</a>
+  <a href="#voices" class="px-3 py-2 rounded-md hover:bg-slate-100">Voices</a>
+  <a href="#call-to-action" class="px-3 py-2 rounded-md hover:bg-slate-100">Key Requirements</a>
+  <a href="#partners" class="px-3 py-2 rounded-md hover:bg-slate-100">Partners</a>
+  <a href="https://docs.google.com/forms/..." class="ml-2 px-4 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 shadow">Feedback Form</a>
+  -->
+</nav>
+
+<!-- 🌐 Mobile Simple Language Switch (スマホだけ表示) -->
+<div class="flex justify-end px-4 py-2 text-sm text-slate-600 md:hidden">
+  <a href="index.html" hreflang="ja" class="underline">日本語</a>
+</div>
+
   </details>
 
   <!-- 既存のリンク -->
