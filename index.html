@@ -397,7 +397,9 @@
 
     if (fb)   fb.href   = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
     if (x)    x.href    = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-    if (line) line.href = `https://social-plugins.line.me/lineit/share?url=${url}`;
+    const shareUrl = encodeURIComponent("https://www.ikuseishurou.com/");
+if (line) line.href = `https://social-plugins.line.me/lineit/share?url=${shareUrl}`;
+
 
     /* Messenger：スマホ優先でアプリへ、PCはダイアログにフォールバック */
     if (msgr) {
@@ -713,6 +715,7 @@
 
 </body>
 </html>
+
 
 
 
