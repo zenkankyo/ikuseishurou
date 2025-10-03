@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>田中邦穂氏 物申す！｜育成就労制度への提言</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+      line-height: 1.9;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+      color: #222;
+    }
+    header {
+      background: #b30000;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      border-left: 8px solid #b30000;
+      padding-left: 0.75rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #b30000;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    h3 {
+      margin-top: 1.2rem;
+      color: #333;
+      font-size: 1.15rem;
+      font-weight: bold;
+    }
+    p {
+      margin: 1rem 0;
+      text-align: justify;
+      font-size: 1rem;
+    }
+    strong {
+      color: #b30000;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      font-size: 0.95rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>田中邦穂氏 物申す！</h1>
+  <p>経営コンサルタント 田中邦穂</p>
+</header>
+
+<main>
+  <p>
+    特段のお願いとして心の底から申し上げたいことは、<br>
+    私たち監理組合と企業が32年もの長きにわたり培ってきた実績にご配慮いただきたい、ということです。<br>
+    その実績を反映し、育成就労制度への移行は<strong>「実績・実態別導入」</strong>をお願い致します。
+  </p>
+
+  <h2>1. 制度変更の背景と現状</h2>
+  <h3>① 技能実習認定の欠格・取消し処分</h3>
+  <p>…本文…</p>
+
+  <h3>② 失踪者問題</h3>
+  <p>…本文…</p>
+
+  <h3>③ 国別の実態</h3>
+  <p>…本文…</p>
+
+  <h2>2. 優良企業と優良監理組合の実績</h2>
+  <p>…本文…</p>
+
+  <h2>3. 日本語資格要件について</h2>
+  <p>…本文…</p>
+
+  <h2>4. 外国人犯罪に関する誤解</h2>
+  <p>…本文…</p>
+
+  <h2>結びに</h2>
+  <p>
+    <strong>「優良監理組合・優良技能実施者への雇用制限撤廃」</strong>と、<br>
+    <strong>「入国前日本語資格要件の撤廃」</strong>を強く求めます。<br>
+    これが日本の未来を守る道であると確信いたします。
+  </p>
+</main>
+
+<footer>
+  <p>経営コンサルタント　田中邦穂</p>
+</footer>
+
+</body>
+</html>
