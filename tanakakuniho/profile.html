@@ -77,27 +77,21 @@
 <main>
 
 <!-- プロフィールカード -->
-<div style="max-width:800px; margin:2rem auto; border:1px solid #ccc; 
-            padding:1.5rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); 
-            display:flex; align-items:center; gap:1.5rem; background:#fff;">
-  <!-- 写真枠（仮） -->
-  <div style="width:150px; height:180px; background:#eee; border:1px solid #bbb; 
-              display:flex; align-items:center; justify-content:center; font-size:0.9rem; color:#666;">
-    写真
+<div style="display:flex; align-items:center; border:1px solid #ddd; padding:1rem; border-radius:8px; background:#fff; max-width:600px; margin:2rem auto;">
+  <!-- 左：写真 -->
+  <div style="flex-shrink:0; width:140px; height:180px; overflow:hidden; border:1px solid #ccc; border-radius:4px;">
+    <img src="images/tanakakuniho.png" alt="田中邦穂の写真" style="width:100%; height:100%; object-fit:cover;">
   </div>
-  <!-- テキスト部分 -->
-  <div style="flex:1;">
-    <p style="color:#e67e00; font-weight:bold; font-size:1.1rem; margin:0;">
-      営業教育　担当
-    </p>
-    <p style="margin:0.3rem 0; font-size:0.95rem; border-bottom:1px solid #999; padding-bottom:0.3rem;">
-      王人（じんじん）経営研究所
-    </p>
-    <p style="font-size:1.4rem; font-weight:bold; margin-top:0.5rem;">
-      田中 邦穂
-    </p>
+
+  <!-- 右：肩書き＋名前 -->
+  <div style="margin-left:1rem;">
+    <p style="color:#d2691e; font-weight:bold; font-size:1.1rem;">営業教育　担当</p>
+    <p style="margin:0.2rem 0; color:#444;">王人（じんじん）経営研究所</p>
+    <hr style="margin:0.5rem 0;">
+    <p style="font-size:1.4rem; font-weight:bold;">田中 邦穂</p>
   </div>
 </div>
+
 
 <!-- バナー画像（物申す！リンク） -->
 <div style="text-align:center; margin:2rem 0;">
