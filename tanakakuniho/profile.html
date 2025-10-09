@@ -17,16 +17,18 @@
     /* ▼ ヘッダー画像 */
     header {
       text-align: center;
-      background: #ffe45c;
-      padding: 3rem 1rem;
-      border-bottom: 5px solid #f5d742;
+      background: #ffe45c; /* ← 画像の地色と合わせて一体化 */
+      padding: 0; /* ← 余白なしでぴったり */
+      border: none;
+      border-bottom: 5px solid #f5d742; /* 下の黄色ラインはそのまま */
     }
     header img {
-      max-width: 1200px;
-      width: 95%;
+      display: block; /* ← 上下のすき間をなくす */
+      width: 100%; /* ← 全幅で表示 */
+      max-width: none; /* ← 制限をなくして自然に */
       height: auto;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 0; /* ← 角丸を削除 */
+      box-shadow: none; /* ← 影を完全に削除 */
     }
 
     /* ▼ 白いカード部分 */
@@ -121,7 +123,7 @@
         margin: 1.5rem;
       }
       header {
-        padding: 2rem 1rem;
+        padding: 0;
       }
       header img {
         width: 100%;
