@@ -173,11 +173,19 @@
   color: #e60000;      /* 鮮やかめの赤 */
 }
 
-   /* ▼ 最後の一文だけ少し大きめ */
+/* ▼ 最後の一文だけ少し大きめ（PC向け） */
 .large {
   font-size: 1.2rem;  /* ← 約14pt相当 */
   line-height: 2.1;
 }
+
+/* ▼ スマホでは元サイズに戻す */
+@media (max-width: 768px) {
+  .large {
+    font-size: 1.05rem; /* ← 通常の本文サイズに戻す */
+  }
+}
+
 
 
 </style>
