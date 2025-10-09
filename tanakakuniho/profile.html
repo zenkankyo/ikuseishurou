@@ -13,53 +13,59 @@
       background: #f8f8f8;
       color: #222;
     }
+
+    /* ▼ ヘッダー画像を中央寄せ＋幅広 */
     header {
-      background: #b30000;
-      color: #fff;
       text-align: center;
-      padding: 2rem 1rem;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      background: #f8f8f8;
+      padding: 3rem 1rem;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      letter-spacing: 2px;
+    header img {
+      max-width: 1200px;  /* ← ここで画像幅を広く設定 */
+      width: 95%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-    }
+
+    /* ▼ 本文(main) */
     main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
+      max-width: 1200px; /* ← 900から拡張 */
+      margin: 3rem auto;
+      padding: 3rem;
       background: #fff;
-      border-radius: 14px;
+      border-radius: 18px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     }
+
     h2 {
       border-left: 8px solid #b30000;
       padding-left: 0.75rem;
       margin-top: 2rem;
       margin-bottom: 1rem;
       color: #b30000;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: bold;
     }
+
     p {
       margin: 0.8rem 0;
-      font-size: 1rem;
+      font-size: 1.05rem; /* ← PCでも読みやすいサイズ */
       text-align: justify;
+      line-height: 2;
     }
+
     ul {
       margin: 0.5rem 0 1.5rem 1.5rem;
       padding: 0;
     }
+
     li {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+      line-height: 1.9;
     }
+
     footer {
       text-align: center;
       margin: 3rem 0 2rem;
@@ -67,7 +73,7 @@
       color: #444;
     }
 
-    /* ▼summary共通スタイル */
+    /* ▼summary 共通スタイル */
     summary {
       cursor: pointer;
       font-weight: bold;
@@ -83,15 +89,29 @@
       height: 1px;
       background: #b30000;
     }
+
+    /* ▼ スマホ対応 */
+    @media (max-width: 768px) {
+      main {
+        padding: 1.5rem;
+        margin: 1.5rem;
+      }
+      header {
+        padding: 2rem 1rem;
+      }
+      header img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
 <!-- ▲ 田中邦穂ヘッダー（画像版） -->
-<header style="text-align:center; background:#f8f8f8; padding:2rem 1rem;">
+<header>
   <img src="../images/物申すtitle.png" 
-       alt="辣腕経営コンサルタント田中邦穂が育成就労制度に物申す!!"
-       style="max-width:900px; width:100%; height:auto; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+       alt="辣腕経営コンサルタント田中邦穂が育成就労制度に物申す!!">
 </header>
 <!-- ▲ 田中邦穂ヘッダー（画像版） -->
 
@@ -99,18 +119,18 @@
 <main>
 
   <!-- プロフィールカード -->
-  <div style="display:flex; align-items:center; border:1px solid #ddd; padding:1rem; border-radius:8px; background:#fff; max-width:600px; margin:2rem auto;">
+  <div style="display:flex; align-items:center; border:1px solid #ddd; padding:1.5rem; border-radius:8px; background:#fff; max-width:800px; margin:2rem auto; flex-wrap:wrap;">
     <!-- 左：写真 -->
-    <div style="flex-shrink:0; width:140px; height:180px; overflow:hidden; border:1px solid #ccc; border-radius:4px;">
+    <div style="flex-shrink:0; width:160px; height:200px; overflow:hidden; border:1px solid #ccc; border-radius:4px; margin-bottom:1rem;">
       <img src="../images/tanakakuniho.png" alt="田中邦穂の写真" style="width:100%; height:100%; object-fit:cover;">
     </div>
 
     <!-- 右：肩書き＋名前 -->
-    <div style="margin-left:1rem;">
-      <p style="color:#d2691e; font-weight:bold; font-size:1.1rem;">営業教育　担当</p>
-      <p style="margin:0.2rem 0; color:#444;">王人（じんじん）経営研究所</p>
-      <hr style="margin:0.5rem 0;">
-      <p style="font-size:1.4rem; font-weight:bold;">田中 邦穂</p>
+    <div style="margin-left:1.5rem; flex:1 1 300px;">
+      <p style="color:#d2691e; font-weight:bold; font-size:1.2rem;">営業教育　担当</p>
+      <p style="margin:0.3rem 0; color:#444;">王人（じんじん）経営研究所</p>
+      <hr style="margin:0.7rem 0;">
+      <p style="font-size:1.6rem; font-weight:bold;">田中 邦穂</p>
     </div>
   </div>
 
@@ -126,35 +146,3 @@
       日本電子㈱、ヤマハ発動機㈱、日本蓄電器工業㈱の各社において第一線の実務を26年間経験。<br>
       その間、各社にて努力賞・敢闘賞・優秀賞・最優秀賞など数多くの表彰を受け存在価値を確立する。<br>
       営業部長職を経て、平成3年経営コンサルタントとして独立。<br>
-      現在、「全社営業力」開発のための経営顧問、営業マン・中堅社員・管理職・新入社員向けの研修、同行指導、全社交流研修、経営相談など多方面にて活躍中。<br>
-      （社団法人）日本経営士会・正会員/経営士
-    </p>
-  </details>
-
-  <!-- ▼ 主な資格・委託業務等 -->
-  <details open style="margin:2rem 0;">
-    <summary>
-      <span style="font-size:1.2rem;">▼</span>
-      <span>主な資格・委託業務等</span>
-      <span class="line"></span>
-    </summary>
-    <ul>
-      <li>平成3年 生涯生活設計アドバイザー（社団法人・中高年齢者雇用福祉協会）</li>
-      <li>平成5年 中小企業指導 経営・技術アドバイザー（東京商工会議所）- 平成13年終了</li>
-      <li>平成6年 企業経営デザインアドバイザー（東京商工会議所）- 平成7年終了</li>
-      <li>平成6年 「産能ビジネス塾」他 添削指導講師（産能大学）- 平成12年終了</li>
-      <li>平成7年 中央職業能力開発協会・登録講師（労働省所管）</li>
-      <li>平成7年 「日本のブレーンマップ」登録講師（日本能率協会総合研究所）</li>
-      <li>平成8年 心身障害者授産施設運営委員（あきる野市社会福祉協議会）</li>
-      <li>平成8年 東京都福祉分野雇用管理アドバイザー（東京都労働経済局）</li>
-    </ul>
-  </details>
-
-</main>
-
-<footer>
-  <p>経営コンサルタント　田中邦穂</p>
-</footer>
-
-</body>
-</html>
