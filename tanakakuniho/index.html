@@ -132,15 +132,19 @@
       }
     }
 
-    /* ▼ PC表示時にヘッダー画像を控えめに */
-   @media (min-width: 1024px) {
+   /* ▼ PC表示（1024px以上）のとき */
+@media (min-width: 1024px) {
+  header {
+    background: #ffeb5c !important; /* ← 画像の黄色により近い明るめトーンに修正 */
+  }
   header img {
-    width: 80% !important;     /* ← 強制的に80％に */
-    max-width: 1000px !important;
-    margin: 0 auto !important;
-    display: block;            /* ← 中央寄せを確実に */
+    width: 72% !important;        /* ← 65% → 72% に少し拡大 */
+    max-width: 1000px !important; /* ← 上限を少し広げる */
+    margin: 1.5rem auto 2.5rem;   /* ← 上下の余白も少し増やしてゆとり感 */
+    display: block;
   }
 }
+
 
   </style>
 </head>
