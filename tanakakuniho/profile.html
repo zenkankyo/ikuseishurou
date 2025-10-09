@@ -133,7 +133,18 @@
         font-size: 1.6rem;
       }
     }
+
+    /* ▼ PC表示（1024px以上）のときはヘッダー画像を少し小さく */
+    @media (min-width: 1024px) {
+      header img {
+        width: 65% !important;
+        max-width: 900px !important;
+        margin: 1rem auto 2rem;
+        display: block;
+      }
+    }
   </style>
+
 </head>
 <body>
 
