@@ -134,18 +134,20 @@
       }
     }
 
-    /* ▼ PC表示（1024px以上）のとき */
+   /* ▼ PC表示（1024px以上）のとき */
 @media (min-width: 1024px) {
   header {
-    background: #FFDE59 !important; /* ← 画像と完全一致する黄色 */
+    background: #FFDE59 !important; /* ← 画像と完全一致の黄色 */
+    border: none !important;        /* ← 下線を完全削除 */
   }
   header img {
-    width: 74% !important;        /* ← 少しだけ大きめ（自然に高さも上がる） */
-    max-width: 1050px !important; /* ← 上限を広げて伸びすぎ防止 */
-    margin: 1.5rem auto 2.5rem;   /* ← 上下の余白でゆとり */
+    width: 78% !important;          /* ← 少し大きめでちょうど良いサイズ感 */
+    max-width: 1100px !important;
+    margin: 1.5rem auto 2.8rem;
     display: block;
   }
 }
+
 
   </style>
 
