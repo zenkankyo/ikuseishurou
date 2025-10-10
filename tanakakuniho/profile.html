@@ -6,255 +6,297 @@
   <title>田中邦穂氏 物申す！｜育成就労制度への提言</title>
   <link rel="icon" type="image/png" href="../images/tanakafavicon.png">
 
- <style>
-  body {
-    font-family: "HGPｺﾞｼｯｸM", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-    line-height: 1.9;
-    margin: 0;
-    padding: 0;
-    background: #f8f8f8;
-    color: #222;
-  }
+<style>
+/* =====================================================
+   🌼 全体の基本設定
+===================================================== */
+body {
+  font-family: "HGPｺﾞｼｯｸM", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.9;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+  color: #222;
+}
 
-  /* ▼ ヘッダー画像 */
+/* =====================================================
+   🟡 ヘッダー画像（上のバナー部分）
+===================================================== */
+header {
+  text-align: center;
+  background: #ffe45c;
+  padding: 0;
+  border: none;
+  border-bottom: 5px solid #f5d742;
+}
+header img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* =====================================================
+   ⚪ 白い本文カード
+===================================================== */
+main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+/* =====================================================
+   🔴 見出しデザイン
+===================================================== */
+h2 {
+  border-left: 8px solid #b30000;
+  padding-left: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #b30000;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+h3 {
+  margin-top: 1.2rem;
+  color: #333;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+/* =====================================================
+   ✍️ 本文とリスト
+===================================================== */
+p {
+  margin: 0.8rem 0;
+  font-size: 1.05rem;
+  text-align: justify;
+  line-height: 2;
+}
+ul {
+  margin: 0.5rem 0 1.5rem 1.5rem;
+  padding: 0;
+}
+li {
+  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+/* =====================================================
+   ⚫ フッター
+===================================================== */
+footer {
+  text-align: center;
+  margin: 3rem 0 2rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* =====================================================
+   🔻 折りたたみ（略歴など）
+===================================================== */
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #b30000;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+summary span.line {
+  flex: 1;
+  height: 1px;
+  background: #b30000;
+}
+
+/* =====================================================
+   🟨 区切り帯（背景が黄色のところ）
+===================================================== */
+.divider {
+  background: #fff4c2;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-top: 3px solid #f5d742;
+  border-bottom: 3px solid #f5d742;
+}
+.divider h2 {
+  color: #b30000;
+  font-size: 2rem;
+  font-weight: 900;
+  border: none;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* =====================================================
+   📱 スマホ調整
+===================================================== */
+@media (max-width: 768px) {
+  main {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
   header {
-    text-align: center;
-    background: #ffe45c;
     padding: 0;
-    border: none;
-    border-bottom: 5px solid #f5d742;
   }
   header img {
-    display: block;
     width: 100%;
-    max-width: none;
-    height: auto;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  /* ▼ 白いカード部分 */
-  main {
-    max-width: 1200px;
-    margin: 3rem auto;
-    padding: 3rem;
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  }
-
-  h2 {
-    border-left: 8px solid #b30000;
-    padding-left: 0.75rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: #b30000;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
-  h3 {
-    margin-top: 1.2rem;
-    color: #333;
-    font-size: 1.15rem;
-    font-weight: bold;
-  }
-
-  p {
-    margin: 0.8rem 0;
-    font-size: 1.05rem;
-    text-align: justify;
-    line-height: 2;
-  }
-
-  ul {
-    margin: 0.5rem 0 1.5rem 1.5rem;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 0.6rem;
-    font-size: 1.05rem;
-    line-height: 1.9;
-  }
-
-  footer {
-    text-align: center;
-    margin: 3rem 0 2rem;
-    font-size: 0.95rem;
-    color: #444;
-  }
-
-  summary {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #b30000;
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  summary span.line {
-    flex: 1;
-    height: 1px;
-    background: #b30000;
-  }
-
-  /* ▼ 区切り帯 */
-  .divider {
-    background: #fff4c2;
-    text-align: center;
-    padding: 3rem 1rem;
-    border-top: 3px solid #f5d742;
-    border-bottom: 3px solid #f5d742;
+    max-width: 100%;
   }
   .divider h2 {
-    color: #b30000;
-    font-size: 2rem;
-    font-weight: 900;
-    border: none;
-    margin: 0;
-    letter-spacing: 2px;
-  }
-
-  @media (max-width: 768px) {
-    main {
-      padding: 1.5rem;
-      margin: 1.5rem;
-    }
-    header {
-      padding: 0;
-    }
-    header img {
-      width: 100%;
-      max-width: 100%;
-    }
-    .divider h2 {
-      font-size: 1.6rem;
-    }
-  }
-
-  /* ▼ PC表示（1024px以上）のとき */
-  @media (min-width: 1024px) {
-    header {
-      background: #FFDE59 !important;
-      border: none !important;
-    }
-    header img {
-      width: 78% !important;
-      max-width: 1100px !important;
-      margin: 1.5rem auto 2.8rem;
-      display: block;
-    }
-  }
-
-  /* ▼ 囲みボックス */
-  .simple-box {
-    border: 1px solid #555;
-    background: #fff;
-    padding: 1.5rem 1.8rem;
-    border-radius: 6px;
-    margin: 2.5rem 0;
-    line-height: 1.95;
-    box-shadow: none;
-  }
-  .simple-box strong {
-    color: #b30000;
-  }
-
-  .bold {
-    font-weight: bold;
-    color: #222;
-  }
-
-  .redbold {
-    font-weight: bold;
-    color: #e60000;
-  }
-
-  .large {
-    font-size: 1.2rem;
-    line-height: 2.1;
-  }
-
-  @media (max-width: 768px) {
-    .large {
-      font-size: 1.05rem;
-    }
-  }
-
-  /* ▼ 筆者セクション */
-  .author-section {
-    margin: 2rem auto 3rem;
-    max-width: 1000px;
-  }
-
-  .author-title {
-    color: #b30000;
     font-size: 1.6rem;
-    font-weight: 900;
-    margin-bottom: 1.5rem;
-    border-left: 8px solid #b30000;
-    padding-left: 0.8rem;
   }
+}
 
+/* =====================================================
+   💻 PC時のみ（1024px以上）
+===================================================== */
+@media (min-width: 1024px) {
+  header {
+    background: #FFDE59 !important;
+    border: none !important;
+  }
+  header img {
+    width: 78% !important;
+    max-width: 1100px !important;
+    margin: 1.5rem auto 2.8rem;
+    display: block;
+  }
+}
+
+/* =====================================================
+   📦 囲みボックス（simple-box）
+===================================================== */
+.simple-box {
+  border: 1px solid #555;
+  background: #fff;
+  padding: 1.5rem 1.8rem;
+  border-radius: 6px;
+  margin: 2.5rem 0;
+  line-height: 1.95;
+  box-shadow: none;
+}
+.simple-box strong {
+  color: #b30000;
+}
+
+/* =====================================================
+   🩶 文字装飾系（太字など）
+===================================================== */
+.bold {
+  font-weight: bold;
+  color: #222;
+}
+.redbold {
+  font-weight: bold;
+  color: #e60000;
+}
+.large {
+  font-size: 1.2rem;
+  line-height: 2.1;
+}
+@media (max-width: 768px) {
+  .large {
+    font-size: 1.05rem;
+  }
+}
+
+/* =====================================================
+   🧍‍♂️ 筆者紹介セクション（田中邦穂）
+===================================================== */
+
+/* ▼ 横並び配置＋高さ・隙間設定 */
+.author-flex {
+  display: flex;
+  align-items: center; /* 写真と文字の縦位置を中央揃え */
+  gap: 4rem; /* ← 写真と文字の距離を広げて呼吸感アップ */
+  flex-wrap: nowrap; /* 改行させない */
+  margin-left: 1rem;
+}
+
+/* ▼ 写真のデザイン */
+.author-photo img {
+  width: 160px;
+  height: 200px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+/* ▼ テキスト全体（右側） */
+.author-info {
+  flex: 1;
+  min-width: 250px;
+  padding-left: 1.2rem;
+  height: 200px; /* ← 写真と高さを揃える */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ▼ 職業：経営コンサルタント */
+.author-role {
+  color: #d2691e;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.1rem;
+  line-height: 1.3;
+}
+
+/* ▼ 所属：壬人（じんじん）経営研究所 */
+.author-org {
+  color: #333;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0; /* ← 余白ゼロに詰める */
+  line-height: 1.25;
+  position: relative;
+}
+
+/* ▼ 下線（隙間のないピタッと線） */
+.author-org::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ccc;
+  margin-top: 0.15rem; /* ← ギリギリの距離だけ */
+}
+
+/* ▼ 名前：田中 邦穂（やや大きめ＆詰め） */
+.author-name {
+  font-weight: 900;
+  font-size: 2.6rem; /* ← 2.3rem → 2.6rem に拡大 */
+  letter-spacing: 0.03em; /* ← 少し詰めてバランス良く */
+  color: #111;
+  margin-top: 0.05rem; /* ← 上との距離をさらに詰める */
+  line-height: 1.2; /* ← 上下の余白を詰める */
+}
+
+
+/* ▼ スマホ版調整 */
+@media (max-width: 768px) {
   .author-flex {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
-
-  .author-photo img {
-    width: 180px;
-    height: 220px;
-    border-radius: 8px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-  }
-
   .author-info {
-    flex: 1 1 300px;
+    height: auto;
+    padding-left: 0;
   }
-
-  .author-role {
-    color: #d2691e;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .author-org {
-    color: #555;
-    margin-bottom: 0.8rem;
-  }
-
-  .author-line {
-    margin: 0.6rem 0;
-    border: none;
-    border-top: 1px solid #ccc;
-  }
-
-  .author-name {
-    font-weight: bold;
-    font-size: 1.6rem;
-    color: #222;
-  }
-
-  @media (max-width: 768px) {
-    .author-flex {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .author-photo img {
-      width: 100%;
-      max-width: 280px;
-      height: auto;
-    }
-  }
+}
 </style>
+
 
 </head>
 <body>
@@ -269,38 +311,23 @@
 <!-- ▼ 第1章：プロフィール＆略歴 -->
 <main>
 
-  <section class="author-section">
-    <h2 class="author-title">この提言の筆者</h2>
+ <section class="author-section">
+  <h2 class="author-title">この提言の筆者</h2>
 
-    <div class="author-flex">
-      <div class="author-photo">
-        <img src="../images/tanakakuniho.png" alt="田中邦穂">
-      </div>
-
-      <div class="author-info">
-        <p class="author-role">営業教育　担当</p>
-        <p class="author-org">王人（じんじん）経営研究所</p>
-        <hr class="author-line">
-        <p class="author-name">田中 邦穂</p>
-      </div>
+  <div class="author-flex">
+    <div class="author-photo">
+      <img src="../images/tanakakuniho.png" alt="田中邦穂">
     </div>
-  </section>
 
-  <details open style="margin:2rem 0;">
-    <summary>
-      <span style="font-size:1.2rem;">▼</span>
-      <span>略歴</span>
-      <span class="line"></span>
-    </summary>
-    <p>
-      昭和22年愛媛県生まれ。<br>
-      日本電子㈱、ヤマハ発動機㈱、日本蓄電器工業㈱の各社において第一線の実務を26年間経験。<br>
-      その間、各社にて努力賞・敢闘賞・優秀賞・最優秀賞など数多くの表彰を受け存在価値を確立する。<br>
-      営業部長職を経て、平成3年経営コンサルタントとして独立。<br>
-      現在、「全社営業力」開発のための経営顧問、営業マン・中堅社員・管理職・新入社員向けの研修、同行指導、全社交流研修、経営相談など多方面にて活躍中。<br>
-      （社団法人）日本経営士会・正会員／経営士
-    </p>
-  </details>
+    <div class="author-info">
+      <p class="author-role">経営コンサルタント</p>
+      <p class="author-org">壬人（じんじん）経営研究所</p>
+      <hr class="author-line">
+      <p class="author-name">田中 邦穂</p>
+    </div>
+  </div>
+</section>
+
 
 </main>
 
