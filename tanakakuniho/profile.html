@@ -289,6 +289,13 @@ p {
     display: block;
   }
 }
+  /* ▼ 「1.制度変更〜」以下を少し右にずらす（帯ごと！） */
+.article-block #article + h2,
+.article-block #article + h2 ~ * {
+  margin-left: 3rem;   /* ← これで帯も含めて右に寄る */
+  box-sizing: border-box;
+}
+
 </style>
 
 </head>
