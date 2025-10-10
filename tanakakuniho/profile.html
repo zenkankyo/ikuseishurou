@@ -289,10 +289,11 @@ p {
     display: block;
   }
 }
-  /* ▼ 「1.制度変更〜」以下を少し右にずらす（帯ごと！） */
+  /* ▼ 「1.制度変更〜」以下のセクションを中央寄せ（帯ごと） */
 .article-block #article + h2,
 .article-block #article + h2 ~ * {
-  margin-left: 3rem;   /* ← これで帯も含めて右に寄る */
+  margin-left: 3rem;    /* ← 左の余白 */
+  margin-right: 3rem;   /* ← 右にも同じだけ余白を！ */
   box-sizing: border-box;
 }
 
