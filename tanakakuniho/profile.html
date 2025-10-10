@@ -43,37 +43,32 @@ header img {
 .divider {
   background: #b30000;
   text-align: center;
-  padding: 1.4rem 1rem 1.2rem;
-  margin: 0 auto; /* ← 下の余白は main の上で調整する */
-  border-radius: 18px 18px 0 0;
+  padding: 1.6rem 1rem 1.4rem;
   color: #fff;
-  width: 100%; /* ← 余計な計算やめて親要素いっぱいに */
-  max-width: 1200px; /* ← main と完全一致 */
-  box-sizing: border-box; /* ← padding含めて幅ぴったり */
+  border-radius: 18px 18px 0 0;
+  margin: 0 auto;
+  max-width: 1100px; /* ← main と完全一致させる（数字を統一） */
+  width: 100%;
+  box-sizing: border-box;
   position: relative;
   z-index: 2;
 }
 
-
-.divider h2 {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 900;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
 /* =====================================================
-   ⚪ 白い本文カード（PROFILE部分）
+   ⚪ 白い本文カード（赤帯と完全一体化）
 ===================================================== */
 main {
-  max-width: 1200px;
-  margin: 2rem auto 3rem auto; /* ← 上だけ2remに変更（ちょっと隙間を戻す） */
+  max-width: 1100px; /* ← 上と同じ数値にする！ */
+  margin: 0 auto 3rem auto;
   padding: 3rem;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 0 0 18px 18px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  position: relative;
+  top: -3rem;
+  z-index: 1;
 }
+
 
 
 /* =====================================================
