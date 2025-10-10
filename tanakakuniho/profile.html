@@ -303,6 +303,28 @@ footer {
   color: #444;           /* ← 少し柔らかいグレー */
   font-weight: bold;
 }
+  /* ▼ 略歴ボタン（クリックで開閉するやつ） */
+.bio-summary {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #b30000;
+  cursor: pointer;
+  display: inline-block;
+  margin: 1rem 0;
+  transition: color 0.2s ease;
+}
+.bio-summary:hover {
+  color: #800000;
+}
+
+/* ブラウザの黒い三角を消す（これ大事！） */
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary {
+  list-style: none;
+}
+
 
 </style>
 
@@ -333,11 +355,8 @@ footer {
       </div>
     </div>
 
-    <details open style="margin:2rem 0;">
-      <summary>
-        <span style="font-size:1.1rem; color:#b30000; font-weight:bold;">▼ 略歴</span>
-        <span class="line" style="flex:1; height:1px; background:#b30000; margin-left:0.5rem;"></span>
-      </summary>
+   <details style="margin:2rem 0;">
+  <summary class="bio-summary">▼ 略歴</summary>
       <p style="margin-top:1rem; line-height:2; text-align:justify;">
         昭和22年愛媛県生まれ。<br>
         日本電子㈱、ヤマハ発動機㈱、日本蓄電器工業㈱の各社において第一線の実務を26年間経験。<br>
