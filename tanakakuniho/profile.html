@@ -38,16 +38,17 @@ header img {
 }
 
 /* =====================================================
-   ⚪ 白いカード背景（全体共通）
+   ⚪ 白カード背景をページ全体（結びまで）に延長
 ===================================================== */
 main {
   max-width: 1200px;
   margin: 3rem auto;
-  padding: 3rem;
+  padding: 3rem 3rem 6rem; /* ← 下に“6rem”追加！ */
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.08);
   box-sizing: border-box;
+  overflow: hidden; /* ← この1行が追加されてる！ */
 }
 
 /* =====================================================
@@ -57,15 +58,20 @@ main {
 
 /* ▼ 赤帯＋本文をまとめるカード全体 */
 .article-block {
-  max-width: 1100px; /* ← 筆者カードと幅を揃える */
+  max-width: 1100px;
   margin: 3rem auto;
-  border-radius: 18px; /* ← 全角丸で統一 */
+  border-radius: 18px;
   background: #fff;
   border: none;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.08); /* ← 同じ浮き感 */
-  overflow: hidden; /* ← 丸角の一体化 */
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
   box-sizing: border-box;
+
+  /* 🔽 これ追加して赤帯下に余裕を確保 */
+  padding-bottom: 3rem;
 }
+
+
 
 /* ▼ 上部の赤い帯 */
 .article-block .divider {
