@@ -19,18 +19,18 @@
   /* ▼ ヘッダー画像 */
   header {
     text-align: center;
-    background: #ffe45c; /* ← 画像の地色と合わせて一体化 */
-    padding: 0; /* ← 余白なしでぴったり */
+    background: #ffe45c;
+    padding: 0;
     border: none;
-    border-bottom: 5px solid #f5d742; /* 下の黄色ラインはそのまま */
+    border-bottom: 5px solid #f5d742;
   }
   header img {
-    display: block; /* ← 上下のすき間をなくす */
-    width: 100%; /* ← 全幅で表示 */
-    max-width: none; /* ← 制限をなくして自然に */
+    display: block;
+    width: 100%;
+    max-width: none;
     height: auto;
-    border-radius: 0; /* ← 角丸を削除 */
-    box-shadow: none; /* ← 影を完全に削除 */
+    border-radius: 0;
+    box-shadow: none;
   }
 
   /* ▼ 白いカード部分 */
@@ -104,7 +104,7 @@
 
   /* ▼ 区切り帯 */
   .divider {
-    background: #fff4c2; /* 淡い黄色でふんわり */
+    background: #fff4c2;
     text-align: center;
     padding: 3rem 1rem;
     border-top: 3px solid #f5d742;
@@ -139,18 +139,18 @@
   /* ▼ PC表示（1024px以上）のとき */
   @media (min-width: 1024px) {
     header {
-      background: #FFDE59 !important; /* ← 画像と完全一致の黄色 */
-      border: none !important;        /* ← 下線を完全削除 */
+      background: #FFDE59 !important;
+      border: none !important;
     }
     header img {
-      width: 78% !important;          /* ← 少し大きめでちょうど良いサイズ感 */
+      width: 78% !important;
       max-width: 1100px !important;
       margin: 1.5rem auto 2.8rem;
       display: block;
     }
   }
 
-  /* ▼ 囲みボックス（黒い細枠） */
+  /* ▼ 囲みボックス */
   .simple-box {
     border: 1px solid #555;
     background: #fff;
@@ -164,34 +164,97 @@
     color: #b30000;
   }
 
-   /* ▼ 太字スタイル */
-.bold {                /* ← 黒太字 */
-  font-weight: bold;
-  color: #222;         /* 黒固定 */
-}
-
-.redbold {             /* ← 普通の赤太字 */
-  font-weight: bold;
-  color: #e60000;      /* 鮮やかめの赤 */
-}
-
-/* ▼ 最後の一文だけ少し大きめ（PC向け） */
-.large {
-  font-size: 1.2rem;  /* ← 約14pt相当 */
-  line-height: 2.1;
-}
-
-/* ▼ スマホでは元サイズに戻す */
-@media (max-width: 768px) {
-  .large {
-    font-size: 1.05rem; /* ← 通常の本文サイズに戻す */
+  .bold {
+    font-weight: bold;
+    color: #222;
   }
-}
 
+  .redbold {
+    font-weight: bold;
+    color: #e60000;
+  }
 
+  .large {
+    font-size: 1.2rem;
+    line-height: 2.1;
+  }
 
+  @media (max-width: 768px) {
+    .large {
+      font-size: 1.05rem;
+    }
+  }
+
+  /* ▼ 筆者セクション */
+  .author-section {
+    margin: 2rem auto 3rem;
+    max-width: 1000px;
+  }
+
+  .author-title {
+    color: #b30000;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    border-left: 8px solid #b30000;
+    padding-left: 0.8rem;
+  }
+
+  .author-flex {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .author-photo img {
+    width: 180px;
+    height: 220px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+  }
+
+  .author-info {
+    flex: 1 1 300px;
+  }
+
+  .author-role {
+    color: #d2691e;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .author-org {
+    color: #555;
+    margin-bottom: 0.8rem;
+  }
+
+  .author-line {
+    margin: 0.6rem 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+
+  .author-name {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #222;
+  }
+
+  @media (max-width: 768px) {
+    .author-flex {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .author-photo img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+    }
+  }
 </style>
-
 
 </head>
 <body>
@@ -205,17 +268,23 @@
 
 <!-- ▼ 第1章：プロフィール＆略歴 -->
 <main>
-  <div style="display:flex; align-items:center; border:1px solid #ddd; padding:1.5rem; border-radius:8px; background:#fff; max-width:800px; margin:2rem auto; flex-wrap:wrap;">
-    <div style="flex-shrink:0; width:160px; height:200px; overflow:hidden; border:1px solid #ccc; border-radius:4px; margin-bottom:1rem;">
-      <img src="../images/tanakakuniho.png" alt="田中邦穂の写真" style="width:100%; height:100%; object-fit:cover;">
+
+  <section class="author-section">
+    <h2 class="author-title">この提言の筆者</h2>
+
+    <div class="author-flex">
+      <div class="author-photo">
+        <img src="../images/tanakakuniho.png" alt="田中邦穂">
+      </div>
+
+      <div class="author-info">
+        <p class="author-role">営業教育　担当</p>
+        <p class="author-org">王人（じんじん）経営研究所</p>
+        <hr class="author-line">
+        <p class="author-name">田中 邦穂</p>
+      </div>
     </div>
-    <div style="margin-left:1.5rem; flex:1 1 300px;">
-      <p style="color:#d2691e; font-weight:bold; font-size:1.2rem;">営業教育　担当</p>
-      <p style="margin:0.3rem 0; color:#444;">王人（じんじん）経営研究所</p>
-      <hr style="margin:0.7rem 0;">
-      <p style="font-size:1.6rem; font-weight:bold;">田中 邦穂</p>
-    </div>
-  </div>
+  </section>
 
   <details open style="margin:2rem 0;">
     <summary>
@@ -229,9 +298,10 @@
       その間、各社にて努力賞・敢闘賞・優秀賞・最優秀賞など数多くの表彰を受け存在価値を確立する。<br>
       営業部長職を経て、平成3年経営コンサルタントとして独立。<br>
       現在、「全社営業力」開発のための経営顧問、営業マン・中堅社員・管理職・新入社員向けの研修、同行指導、全社交流研修、経営相談など多方面にて活躍中。<br>
-      （社団法人）日本経営士会・正会員/経営士
+      （社団法人）日本経営士会・正会員／経営士
     </p>
   </details>
+
 </main>
 
 
