@@ -64,19 +64,17 @@ header img {
 }
 
 /* =====================================================
-   ⚪ 白い本文カード（赤帯とぴったり一体化）
+   ⚪ 白い本文カード（PROFILE部分）
 ===================================================== */
 main {
   max-width: 1200px;
-  margin: 0 auto 3rem auto; /* ← 上の余白をなくして赤帯にくっつける */
+  margin: 2rem auto 3rem auto; /* ← 上だけ2remに変更（ちょっと隙間を戻す） */
   padding: 3rem;
   background: #fff;
-  border-radius: 0 0 18px 18px; /* ← 下だけ丸角にする（上は赤帯と融合） */
+  border-radius: 18px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  position: relative;
-  top: -3rem; /* ← 赤帯との段差をゼロに調整 */
-  z-index: 1;
 }
+
 
 /* =====================================================
    ✍️ 本文と見出し
