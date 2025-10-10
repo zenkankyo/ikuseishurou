@@ -37,38 +37,34 @@ header img {
   box-shadow: none;
 }
 
-/* =====================================================
-   🔴 区切り帯（赤い見出し部分）
-===================================================== */
-.divider {
+/* 🔳 赤帯＋本文をまとめる共通ボックス */
+.article-block {
+  max-width: 1100px;
+  margin: 3rem auto;
+  border-radius: 18px;
+  overflow: hidden; /* ← 両方の角を共通にする */
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+/* 🔴 赤い帯（上部） */
+.article-block .divider {
   background: #b30000;
   text-align: center;
   padding: 1.6rem 1rem 1.4rem;
   color: #fff;
-  border-radius: 18px 18px 0 0;
-  margin: 0 auto;
-  max-width: 1100px; /* ← main と完全一致させる（数字を統一） */
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
 }
 
-/* =====================================================
-   ⚪ 白い本文カード（赤帯と完全一体化）
-===================================================== */
-main {
-  max-width: 1100px; /* ← 上と同じ数値にする！ */
-  margin: 0 auto 3rem auto;
-  padding: 3rem;
+.article-block .divider h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+/* ⚪ 白い本文部分 */
+.article-block #article {
   background: #fff;
-  border-radius: 0 0 18px 18px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  position: relative;
-  top: -3rem;
-  z-index: 1;
+  padding: 3rem;
 }
-
 
 
 /* =====================================================
@@ -279,13 +275,11 @@ p {
 
 </main>
 
-<!-- ▼ 赤い帯（区切りタイトル） -->
-<div class="divider">
-  <h2>田中邦穂氏、育成就労制度に物申す！</h2>
-</div>
+<div class="article-block">
+  <div class="divider">
+    <h2>田中邦穂氏、育成就労制度に物申す！</h2>
+  </div>
 
-<!-- ▼ 赤帯のすぐ下から白背景②スタート -->
-<main style="margin-top: 0;">
   <section id="article">
     <div class="simple-box">
       特段のお願いとして心の底から申し上げたいことは、<br>
@@ -303,6 +297,7 @@ p {
       <span class="large">ぜひご支援お願い致します。</span>
     </div>
   </section>
+</div>
 
 
     <h2>1. 制度変更の背景と現状</h2>
