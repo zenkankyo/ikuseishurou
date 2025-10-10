@@ -43,17 +43,17 @@ header img {
 .divider {
   background: #b30000;
   text-align: center;
-  padding: 1.6rem 1rem 1.3rem;
-  margin: 0 auto;
+  padding: 1.4rem 1rem 1.2rem;
+  margin: 0 auto; /* ← 下の余白は main の上で調整する */
   border-radius: 18px 18px 0 0;
   color: #fff;
-  width: 100%;
-  max-width: 1200px; /* mainと同じ幅 */
-  box-sizing: border-box;
-  transform: translateY(3rem); /* mainの上padding分を補正してつなげる */
+  width: 100%; /* ← 余計な計算やめて親要素いっぱいに */
+  max-width: 1200px; /* ← main と完全一致 */
+  box-sizing: border-box; /* ← padding含めて幅ぴったり */
   position: relative;
   z-index: 2;
 }
+
 
 .divider h2 {
   color: #fff;
