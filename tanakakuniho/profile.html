@@ -43,13 +43,16 @@ header img {
 .divider {
   background: #b30000;
   text-align: center;
-  padding: 1.4rem 1rem 1.2rem;
-  margin: 0 auto 2rem auto; /* ← はみ出しをなくす！ */
+  padding: 1.6rem 1rem 1.3rem;
+  margin: 0 auto;
   border-radius: 18px 18px 0 0;
   color: #fff;
-  width: calc(100% - 6rem); /* ← mainのpadding(3rem×2)に合わせる */
-  max-width: 1200px; /* ← mainと同じ最大幅で中央寄せ */
-  box-sizing: border-box; /* ← padding分を含めて幅調整 */
+  width: 100%;
+  max-width: 1200px; /* mainと同じ幅 */
+  box-sizing: border-box;
+  transform: translateY(3rem); /* mainの上padding分を補正してつなげる */
+  position: relative;
+  z-index: 2;
 }
 
 .divider h2 {
@@ -61,15 +64,18 @@ header img {
 }
 
 /* =====================================================
-   ⚪ 白い本文カード
+   ⚪ 白い本文カード（赤帯とぴったり一体化）
 ===================================================== */
 main {
   max-width: 1200px;
-  margin: 3rem auto;
+  margin: 0 auto 3rem auto; /* ← 上の余白をなくして赤帯にくっつける */
   padding: 3rem;
   background: #fff;
-  border-radius: 18px; /* ← 全部の角を丸く統一！ */
+  border-radius: 0 0 18px 18px; /* ← 下だけ丸角にする（上は赤帯と融合） */
   box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  position: relative;
+  top: -3rem; /* ← 赤帯との段差をゼロに調整 */
+  z-index: 1;
 }
 
 /* =====================================================
